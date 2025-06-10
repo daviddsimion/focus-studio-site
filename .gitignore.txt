@@ -1,0 +1,7 @@
+.vs/
+*.vsidx
+*.tmp
+*.log
+*.bak
+*.DS_Store
+Thumbs.db

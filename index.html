@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus Studio - Povestea vizuală a momentelor tale</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header class="main-header">
+        <img src="logo.png" alt="Focus Studio Logo" class="logo">
+        <h1>Focus Studio 📸</h1>
+        <p class="tagline">Un tânăr din Slobozia, pasionat de editare, foto și video 🎬</p>
+        <nav>
+            <a href="#despre">Despre</a>
+            <a href="#servicii">Servicii</a>
+            <a href="#portofoliu">Portofoliu</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+
+    <section id="despre">
+        <h2>Povestea mea</h2>
+        <div class="animated-box visible">
+            <p>
+                Sunt David, un tânăr din Slobozia care a descoperit pasiunea pentru editare video și fotografie încă din adolescență. Totul a început ca o joacă — făceam editări amuzante pentru prieteni, clipuri scurte și momente care ne aduceau zâmbetul pe buze. Cu timpul, această pasiune a devenit ceva mult mai profund și serios.
+
+                Am învățat singur, explorând tehnici de filmare, color grading, montaj și storytelling vizual, iar fiecare proiect a fost o nouă provocare care m-a ajutat să cresc. Azi, cu Focus Studio, colaborez cu clienți din diverse domenii — de la nunți și evenimente personale, la reclame, vloguri și conținut creativ pentru social media.
+
+                Cred cu tărie că fiecare clipă are o poveste și merită să fie surprinsă în cel mai autentic și cinematic mod posibil. Nu e vorba doar despre a face poze sau videoclipuri, ci despre a crea emoții, amintiri și vibe-uri care să rămână vii mult timp după ce momentul a trecut.
+
+                Fiecare proiect este pentru mine o oportunitate de a aduce magie vizuală, originalitate și energie proaspătă, pentru ca tu să te regăsești în fiecare cadru și să simți cu adevărat ce am vrut să transmit.
+
+                Slobozia e orașul meu natal și locul de unde am pornit cu mult entuziasm și dorință de a face lucruri care să impresioneze, să inspire și să conecteze oameni prin imagini și sunete.
+
+                Focus Studio nu este doar o afacere — este visul meu în acțiune, o platformă unde pasiunea, creativitatea și profesionalismul se întâlnesc pentru a crea conținut care să te reprezinte cu adevărat.
+            </p>
+        </div>
+    </section>
+
+
+    <section id="servicii">
+        <h2>Serviciile mele</h2>
+        <ul class="services-list">
+            <li>
+                <h3>📸 Fotografie</h3>
+                <p>Sesiuni foto pentru evenimente, portrete, produse, lifestyle.</p>
+            </li>
+            <li>
+                <h3>🎥 Videografie</h3>
+                <p>Filmări profesionale pentru evenimente, reclame, vloguri, TikTok.</p>
+            </li>
+            <li>
+                <h3>🖥️ Editare</h3>
+                <p>Montaj dinamic, colorizare cinematică, efecte moderne și tranziții cool.</p>
+            </li>
+        </ul>
+    </section>
+
+    <section id="portofoliu">
+        <h2>Portofoliu</h2>
+        <div class="gallery">
+            <a href="poza1.png" target="_blank">
+                <img src="poza1.png" alt="Poza 1">
+            </a>
+            <a href="poza2.png" target="_blank">
+                <img src="poza2.png" alt="Poza 2">
+            </a>
+        </div>
+    </section>
+
+    <section id="testimoniale">
+        <h2>Ce spun clienții</h2>
+        <blockquote>„David de la Focus Studio ne-a surprins total! Ne-a transformat nunta în trailer de film! 🔥” — Raluca & Alex</blockquote>
+        <blockquote>„Videoclipul nostru promo a fost exact vibe-ul fresh de care aveam nevoie!” — Studio Flex</blockquote>
+    </section>
+
+    <section id="contact">
+        <h2>Contactează-mă</h2>
+        <p><strong>📞 Telefon:</strong> <a href="tel:0731748445">0731748445</a></p>
+        <p><strong>📸 Instagram Business:</strong> <a href="https://www.instagram.com/focus.studio.ro/" target="_blank">@focus.studio.ro</a></p>
+        <p><strong>👤 Instagram Personal:</strong> <a href="https://www.instagram.com/daviddsimion/" target="_blank">@daviddsimion</a></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Focus Studio - Creat de David din Slobozia cu 🎞️ și ❤️</p>
+    </footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chat Fake DavidBot</title>
+    <style>
+        #chat-container {
+            width: 300px;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #121212;
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            box-shadow: 0 0 20px #ff4da6;
+            z-index: 9999;
+        }
+
+        #chat-header {
+            background: #ff4da6;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        #chat-box {
+            max-height: 250px;
+            overflow-y: auto;
+            padding: 10px;
+            font-size: 0.95em;
+            display: flex;
+            flex-direction: column;
+        }
+
+            #chat-box div {
+                margin-bottom: 10px;
+            }
+
+        .bot-msg {
+            background: #333;
+            padding: 8px 12px;
+            border-radius: 12px;
+            width: fit-content;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .user-msg {
+            background: #ff4da6;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 12px;
+            align-self: flex-end;
+            margin-left: auto;
+            width: fit-content;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        #chat-input {
+            width: 100%;
+            border: none;
+            padding: 10px;
+            box-sizing: border-box;
+            font-size: 1em;
+            outline: none;
+            border-top: 1px solid #ff4da6;
+            background: #1e1e1e;
+            color: white;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="chat-container">
+        <div id="chat-header">📸 DavidBot</div>
+        <div id="chat-box">
+            <div class="bot-msg">Salut! Eu sunt David și îți răspund cât ai zice „editare”! 😎</div>
+        </div>
+        <input type="text" id="chat-input" placeholder="Scrie ceva..." />
+    </div>
+
+    <script>
+        const input = document.getElementById("chat-input");
+        const box = document.getElementById("chat-box");
+
+        const raspunsuri = [
+            "📸 Momentul perfect? Îl prind eu, stai liniștit.",
+            "🎬 Îți place vibe-ul cinematic? Facem magie împreună!",
+            "🔧 Editare profi, fără compromisuri!",
+            "💬 Spune-mi ce vrei și adaptăm stilul tău!",
+            "🔥 Pozele tale o să rupă Instagram-ul, garantat!",
+            "😎 Vrei și filmare verticală pentru TikTok? Se rezolvă!"
+        ];
+
+        input.addEventListener("keypress", function (e) {
+            if (e.key === "Enter" && input.value.trim()) {
+                const userMsg = document.createElement("div");
+                userMsg.className = "user-msg";
+                userMsg.innerText = input.value;
+                box.appendChild(userMsg);
+
+                const botMsg = document.createElement("div");
+                botMsg.className = "bot-msg";
+                botMsg.innerText = "David tastează...";
+
+                box.appendChild(botMsg);
+                box.scrollTop = box.scrollHeight;
+
+                const index = Math.floor(Math.random() * raspunsuri.length);
+                const reply = raspunsuri[index];
+
+                setTimeout(() => {
+                    botMsg.innerText = reply;
+                    box.scrollTop = box.scrollHeight;
+                }, 1000);
+
+                input.value = "";
+            }
+        });
+    </script>
+</body>
+</html>
