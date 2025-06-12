@@ -10,10 +10,11 @@ body {
   background: #121212;
   color: #d4af37; /* gold */
   line-height: 1.6;
-  padding: 0 20px 80px; /* spațiu pt footer */
+  padding: 0 20px 80px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  scroll-behavior: smooth;
 }
 
 a {
@@ -115,11 +116,13 @@ section h2 {
   list-style: none;
   font-size: 1.2rem;
   color: #d4af37;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 .services-list li {
   margin: 15px 0;
-  padding-left: 15px;
+  padding-left: 25px;
   position: relative;
 }
 
@@ -137,7 +140,7 @@ footer {
   background: #000;
   color: #d4af37;
   text-align: center;
-  padding: 20px 15px;
+  padding: 15px 10px;
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -145,6 +148,7 @@ footer {
   font-size: 1rem;
   box-shadow: 0 -4px 10px rgba(212, 175, 55, 0.6);
   letter-spacing: 1px;
+  user-select: none;
 }
 
 /* Animations */
@@ -155,6 +159,40 @@ footer {
   50% {
     transform: translateY(-15px);
   }
+}
+
+/* Back to Top Button */
+#back-to-top {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  background: #b8860b; /* gold subtil */
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  color: #121212;
+  font-size: 1.8rem;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(184, 134, 11, 0.6);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+#back-to-top.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#back-to-top:hover {
+  background: #d4af37;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.9);
 }
 
 /* Responsive */
@@ -178,5 +216,18 @@ footer {
   section {
     margin: 40px 15px;
     padding: 30px 20px;
+  }
+
+  footer {
+    font-size: 0.9rem;
+    padding: 12px 8px;
+  }
+
+  #back-to-top {
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
   }
 }
