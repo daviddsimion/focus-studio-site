@@ -1,304 +1,92 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Focus Studio - Eleganță Exclusivistă</title>
-  <link rel="stylesheet" href="styles.css" />
-  <style>
-    /* Minimal CSS direct aici ca să-l vezi mai rapid */
-
-    /* Reset */
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
-    }
-
-    body {
-      background: #121212;
-      color: #d4af37;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      scroll-behavior: smooth;
-      padding: 0 20px 40px;
-    }
-
-    header {
-      background: #000;
-      padding: 30px 0;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      box-shadow: 0 0 25px #d4af37aa;
-    }
-
-    header img {
-      height: 70px;
-      filter: drop-shadow(0 0 8px #d4af37);
-      animation: float 4s ease-in-out infinite;
-    }
-
-    nav {
-      margin-top: 15px;
-    }
-
-    nav a {
-      color: #d4af37;
-      text-transform: uppercase;
-      font-weight: 700;
-      margin: 0 15px;
-      text-decoration: none;
-      padding: 8px 15px;
-      border-radius: 12px;
-      transition: background-color 0.3s ease, color 0.3s ease;
-      user-select: none;
-      font-size: 1rem;
-    }
-
-    nav a:hover, nav a:focus {
-      background-color: #d4af37;
-      color: #000;
-      outline: none;
-      box-shadow: 0 0 20px #d4af37bb;
-      cursor: pointer;
-    }
-
-    #hero {
-      height: 65vh;
-      background: url('hero-bg.jpg') center/cover no-repeat;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: #d4af37;
-      filter: drop-shadow(0 0 6px #d4af37);
-      margin-bottom: 50px;
-    }
-
-    #hero h1 {
-      font-size: 3rem;
-      text-shadow: 0 0 20px #d4af37cc;
-      user-select: none;
-      background: rgba(0,0,0,0.6);
-      padding: 20px 40px;
-      border-radius: 20px;
-      animation: fadeInDown 1.5s ease forwards;
-    }
-
-    main {
-      max-width: 900px;
-      margin: auto;
-    }
-
-    section {
-      margin-bottom: 70px;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 1s ease, transform 1s ease;
-    }
-
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    h2 {
-      font-size: 2.2rem;
-      color: #d4af37;
-      text-shadow: 0 0 10px #d4af37cc;
-      margin-bottom: 20px;
-      user-select: none;
-    }
-
-    p, li, blockquote {
-      font-size: 1.2rem;
-      color: #f5f5dc;
-      max-width: 700px;
-      margin: 0 auto 15px;
-      line-height: 1.7;
-    }
-
-    ul {
-      list-style: none;
-      padding-left: 0;
-      max-width: 700px;
-      margin: auto;
-    }
-
-    ul li {
-      background: #222;
-      padding: 15px 25px;
-      border-radius: 15px;
-      margin-bottom: 18px;
-      box-shadow: 0 0 15px #d4af37aa;
-      transition: background-color 0.3s ease;
-      user-select: none;
-    }
-
-    ul li:hover {
-      background: #d4af37;
-      color: #000;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    .gallery img {
-      width: 280px;
-      border-radius: 20px;
-      box-shadow: 0 0 25px #d4af37bb;
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-      cursor: pointer;
-      user-select: none;
-    }
-
-    .gallery img:hover,
-    .gallery img:focus {
-      transform: scale(1.1);
-      box-shadow: 0 0 40px #fff;
-      outline: none;
-    }
-
-    blockquote {
-      font-style: italic;
-      background: #222;
-      border-left: 6px solid #d4af37;
-      padding: 20px 25px;
-      max-width: 700px;
-      margin: 20px auto;
-      color: #f5f5dc;
-      box-shadow: 0 0 20px #d4af37aa;
-      user-select: none;
-    }
-
-    footer {
-      background: #000;
-      text-align: center;
-      padding: 25px 20px;
-      color: #d4af37;
-      font-weight: 600;
-      user-select: none;
-      box-shadow: 0 0 15px #d4af37cc inset;
-      margin-top: 50px;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-15px); }
-    }
-
-    @keyframes fadeInDown {
-      from {
-        opacity: 0;
-        transform: translateY(-40px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Responsive */
-    @media (max-width: 800px) {
-      .gallery img {
-        width: 90vw;
-      }
-
-      nav a {
-        margin: 0 8px;
-        font-size: 0.9rem;
-        padding: 6px 12px;
-      }
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Focus Studio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Loader -->
+  <div id="loader">
+    <div class="spinner"></div>
+  </div>
 
-<header>
-  <img src="logo.png" alt="Focus Studio Logo" />
-  <nav aria-label="Meniu principal">
-    <a href="#despre">Despre</a>
-    <a href="#servicii">Servicii</a>
-    <a href="#portofoliu">Portofoliu</a>
-    <a href="#testimoniale">Testimoniale</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+  <!-- Header -->
+  <header class="main-header">
+    <img src="logo.png" alt="Focus Studio Logo" class="logo">
+    <h1 class="tagline">Imortalizăm emoția fiecărui moment</h1>
+    <nav>
+      <a href="#despre">Despre</a>
+      <a href="#portofoliu">Portofoliu</a>
+      <a href="#servicii">Servicii</a>
+      <a href="#testimoniale">Testimoniale</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-<section id="hero" aria-label="Imagine principală Focus Studio">
-  <h1>Bun venit la Focus Studio</h1>
-</section>
-
-<main>
-  <section id="despre" tabindex="0" aria-label="Despre Focus Studio">
-    <h2>Despre noi</h2>
-    <p>
-      Sunt David, un tânăr pasionat de fotografie și editare video din Slobozia. La Focus Studio, aducem eleganță și rafinament în fiecare cadru.
-    </p>
-  </section>
-
-  <section id="servicii" tabindex="0" aria-label="Serviciile oferite de Focus Studio">
-    <h2>Serviciile noastre</h2>
-    <ul>
-      <li>Fotografie profesională: portrete, evenimente, produse</li>
-      <li>Videografie creativă: videoclipuri promoționale și personale</li>
-      <li>Editare și post-producție la cele mai înalte standarde</li>
-      <li>Consultanță personalizată pentru proiectele tale</li>
-    </ul>
-  </section>
-
-  <section id="portofoliu" tabindex="0" aria-label="Galerie portofoliu Focus Studio">
-    <h2>Portofoliu</h2>
-    <div class="gallery">
-      <img src="foto1.jpg" alt="Fotografie portofoliu 1" tabindex="0" />
-      <img src="foto2.jpg" alt="Fotografie portofoliu 2" tabindex="0" />
-      <img src="foto3.jpg" alt="Fotografie portofoliu 3" tabindex="0" />
-      <img src="foto4.jpg" alt="Fotografie portofoliu 4" tabindex="0" />
+  <!-- Hero -->
+  <section id="hero">
+    <div class="hero-text">
+      <h2>Bine ai venit la Focus Studio</h2>
+      <p>Povestea unui tânăr din Slobozia pasionat de arta vizuală.</p>
     </div>
   </section>
 
-  <section id="testimoniale" tabindex="0" aria-label="Testimoniale clienți">
-    <h2>Testimoniale</h2>
-    <blockquote>"David a capturat momentele noastre importante cu eleganță și profesionalism."</blockquote>
-    <blockquote>"Serviciile Focus Studio sunt la cel mai înalt nivel, recomand cu încredere!"</blockquote>
+  <!-- Despre -->
+  <section id="despre">
+    <h2>Despre mine</h2>
+    <div class="animated-box">
+      <p>Sunt David, fondatorul Focus Studio. Din pasiune pentru fotografie și editare, am transformat un vis într-o realitate profesională. Fiecare cadru surprinde o poveste, iar fiecare detaliu contează.</p>
+    </div>
   </section>
 
-  <section id="contact" tabindex="0" aria-label="Informații de contact Focus Studio">
-    <h2>Contact</h2>
-    <p>Instagram: <a href="https://instagram.com/focus.studio.ro" target="_blank" rel="noopener noreferrer">@focus.studio.ro</a></p>
-    <p>Telefon: <a href="tel:+40731748445">0731 748 445</a></p>
-    <p>Email: <a href="mailto:david@focusstudio.ro">david@focusstudio.ro</a></p>
+  <!-- Portofoliu -->
+  <section id="portofoliu">
+    <h2>Portofoliu</h2>
+    <div class="gallery">
+      <img src="poza1.png" alt="Portofoliu 1">
+      <img src="poza2.png" alt="Portofoliu 2">
+      <img src="cand_trandafirii.png" alt="Portofoliu 3">
+    </div>
   </section>
-</main>
 
-<footer>
-  <p>&copy; 2025 Focus Studio. Toate drepturile rezervate.</p>
-</footer>
+  <!-- Servicii -->
+  <section id="servicii">
+    <h2>Servicii</h2>
+    <ul class="services-list">
+      <li>Fotografie de eveniment</li>
+      <li>Videografie cinematică</li>
+      <li>Editare profesională</li>
+      <li>Sesiuni foto personalizate</li>
+    </ul>
+  </section>
 
-<script>
-  // Animație simplă pentru secțiuni când scroll
-  document.addEventListener('DOMContentLoaded', () => {
-    const sections = document.querySelectorAll('main section');
-    const revealOnScroll = () => {
-      sections.forEach(section => {
-        const rect = section.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 100) {
-          section.classList.add('visible');
-        }
-      });
-    };
-    window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll();
-  });
-</script>
+  <!-- Testimoniale -->
+  <section id="testimoniale">
+    <h2>Ce spun clienții</h2>
+    <blockquote>"Focus Studio a surprins exact ce aveam nevoie! Emoție pură în fiecare fotografie."</blockquote>
+    <blockquote>"Un profesionist adevărat, dedicat și creativ. Recomand cu toată încrederea!"</blockquote>
+  </section>
 
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Hai să colaborăm!</h2>
+    <p>Scrie-mi pe <a href="https://instagram.com/focus.studio.ro" target="_blank">Instagram @focus.studio.ro</a> sau sună-mă la <a href="tel:+40731748445">0731 748 445</a></p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Focus Studio · Toate drepturile rezervate</p>
+  </footer>
+
+  <script>
+    window.addEventListener("load", () => {
+      document.getElementById("loader").style.display = "none";
+    });
+  </script>
 </body>
 </html>
