@@ -5,4 +5,11 @@ document.addEventListener('DOMContentLoaded', () => {
     sections.forEach(section => {
       const rect = section.getBoundingClientRect();
       if (rect.top < window.innerHeight - 100) {
-        section
+        section.classList.add('visible');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', revealOnScroll);
+  revealOnScroll(); // la load
+});
