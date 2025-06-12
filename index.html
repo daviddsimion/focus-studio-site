@@ -2,51 +2,56 @@
 <html lang="ro">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Focus Studio</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="main-header">
-    <img src="logo.png" alt="Focus Studio Logo" class="logo" />
+  <header class="main-header" role="banner">
+    <img src="logo.png" alt="Logo Focus Studio" class="logo" />
     <p class="tagline">Capturăm povești, nu doar imagini.</p>
-    <nav>
+    <nav role="navigation" aria-label="Meniu principal">
       <a href="#despre">Despre</a>
       <a href="#galerie">Portofoliu</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <section id="despre">
-    <h2>Despre</h2>
-    <div class="animated-box">
-      <p>Focus Studio s-a născut din pasiunea unui tânăr din Slobozia care și-a dorit să transforme momente în artă. Oferim servicii de fotografie și videografie exclusiviste, fiecare cadru fiind o poveste spusă cu rafinament.</p>
-    </div>
-  </section>
+  <main>
+    <section id="despre" tabindex="-1">
+      <h2>Despre</h2>
+      <div class="animated-box">
+        <p>
+          Focus Studio s-a născut din pasiunea unui tânăr din Slobozia care și-a dorit să transforme momente în artă. Oferim servicii de fotografie și videografie exclusiviste, fiecare cadru fiind o poveste spusă cu rafinament.
+        </p>
+      </div>
+    </section>
 
-  <section id="galerie">
-    <h2>Portofoliu</h2>
-    <div class="gallery">
-      <img src="poza1.png" alt="Portofoliu 1" />
-      <img src="poza2.png" alt="Portofoliu 2" />
-      <img src="cand_trandafirii.png" alt="Portofoliu 3" />
-    </div>
-  </section>
+    <section id="galerie" tabindex="-1">
+      <h2>Portofoliu</h2>
+      <div class="gallery" aria-label="Galerie foto portofoliu">
+        <img src="poza1.png" alt="Portofoliu 1" />
+        <img src="poza2.png" alt="Portofoliu 2" />
+        <img src="cand_trandafirii.png" alt="Portofoliu 3" />
+      </div>
+    </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <ul class="services-list">
-      <li>Instagram: <a href="https://instagram.com/focus.studio.ro" target="_blank">@focus.studio.ro</a></li>
-      <li>Telefon: 0731748445</li>
-      <li>Email: dumii273@gmail.com</li>
-    </ul>
-  </section>
+    <section id="contact" tabindex="-1">
+      <h2>Contact</h2>
+      <ul class="services-list">
+        <li>Instagram: <a href="https://instagram.com/focus.studio.ro" target="_blank" rel="noopener noreferrer">@focus.studio.ro</a></li>
+        <li>Telefon: <a href="tel:0731748445">0731748445</a></li>
+        <li>Email: <a href="mailto:dumii273@gmail.com">dumii273@gmail.com</a></li>
+      </ul>
+    </section>
+  </main>
 
-  <footer>
+  <footer role="contentinfo">
     &copy; 2025 Focus Studio. Toate drepturile rezervate.
   </footer>
 
   <button id="back-to-top" aria-label="Înapoi sus">↑</button>
+
   <script src="script.js"></script>
 </body>
 </html>
