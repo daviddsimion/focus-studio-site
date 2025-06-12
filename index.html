@@ -3,55 +3,76 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Focus Studio</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Focus Studio - Exclusivist Negru & Gold</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="main-header" role="banner">
-    <img src="logo.png" alt="Logo Focus Studio" class="logo" />
-    <p class="tagline">Capturăm povești, nu doar imagini.</p>
-    <nav role="navigation" aria-label="Meniu principal">
-      <a href="#despre">Despre</a>
-      <a href="#galerie">Portofoliu</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
 
-  <main>
-    <section id="despre" tabindex="-1">
-      <h2>Despre</h2>
-      <div class="animated-box">
-        <p>
-          Focus Studio s-a născut din pasiunea unui tânăr din Slobozia care și-a dorit să transforme momente în artă. Oferim servicii de fotografie și videografie exclusiviste, fiecare cadru fiind o poveste spusă cu rafinament.
-        </p>
-      </div>
-    </section>
+<header class="main-header">
+  <img src="logo.png" alt="Focus Studio Logo" class="logo" />
+  <h1 class="tagline">Focus Studio - Eleganță în fiecare cadru</h1>
+  <nav>
+    <a href="#despre">Despre</a>
+    <a href="#servicii">Servicii</a>
+    <a href="#portofoliu">Portofoliu</a>
+    <a href="#testimoniale">Testimoniale</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-    <section id="galerie" tabindex="-1">
-      <h2>Portofoliu</h2>
-      <div class="gallery" aria-label="Galerie foto portofoliu">
-        <img src="poza1.png" alt="Portofoliu 1" />
-        <img src="poza2.png" alt="Portofoliu 2" />
-        <img src="cand_trandafirii.png" alt="Portofoliu 3" />
-      </div>
-    </section>
+<section id="hero" aria-label="Imagine principală Focus Studio">
+  <div class="hero-text">
+    <h2>Bun venit la Focus Studio</h2>
+    <p>Descoperă eleganța și rafinamentul în fiecare fotografie și video</p>
+  </div>
+</section>
 
-    <section id="contact" tabindex="-1">
-      <h2>Contact</h2>
-      <ul class="services-list">
-        <li>Instagram: <a href="https://instagram.com/focus.studio.ro" target="_blank" rel="noopener noreferrer">@focus.studio.ro</a></li>
-        <li>Telefon: <a href="tel:0731748445">0731748445</a></li>
-        <li>Email: <a href="mailto:dumii273@gmail.com">dumii273@gmail.com</a></li>
-      </ul>
-    </section>
-  </main>
+<main>
+  <section id="despre" class="animated-box" tabindex="0">
+    <h2>Despre noi</h2>
+    <p>
+      Sunt David, pasionat de fotografie și editare video din Slobozia. La Focus Studio, combinăm arta cu tehnologia pentru a crea amintiri exclusiviste.
+    </p>
+  </section>
 
-  <footer role="contentinfo">
-    &copy; 2025 Focus Studio. Toate drepturile rezervate.
-  </footer>
+  <section id="servicii" class="animated-box" tabindex="0">
+    <h2>Serviciile noastre</h2>
+    <ul class="services-list">
+      <li>Fotografie profesională - portrete, evenimente, produse</li>
+      <li>Videografie creativă - videoclipuri promoționale și personale</li>
+      <li>Editare și post-producție la standarde premium</li>
+      <li>Consultanță personalizată pentru proiectele tale</li>
+    </ul>
+  </section>
 
-  <button id="back-to-top" aria-label="Înapoi sus">↑</button>
+  <section id="portofoliu" class="animated-box" tabindex="0">
+    <h2>Portofoliu</h2>
+    <div class="gallery" aria-label="Galerie foto Focus Studio">
+      <img src="foto1.jpg" alt="Portofoliu fotografie 1" />
+      <img src="foto2.jpg" alt="Portofoliu fotografie 2" />
+      <img src="foto3.jpg" alt="Portofoliu fotografie 3" />
+      <img src="foto4.jpg" alt="Portofoliu fotografie 4" />
+    </div>
+  </section>
 
-  <script src="script.js"></script>
+  <section id="testimoniale" class="animated-box" tabindex="0">
+    <h2>Testimoniale</h2>
+    <blockquote>"David a capturat momentele noastre importante cu multă eleganță și profesionalism."</blockquote>
+    <blockquote>"Serviciile Focus Studio sunt la cel mai înalt nivel, recomand cu încredere!"</blockquote>
+  </section>
+
+  <section id="contact" class="animated-box" tabindex="0">
+    <h2>Contact</h2>
+    <p>Instagram: <a href="https://instagram.com/focus.studio.ro" target="_blank" rel="noopener noreferrer">@focus.studio.ro</a></p>
+    <p>Telefon: <a href="tel:+40731748445">0731 748 445</a></p>
+    <p>Email: <a href="mailto:david@focusstudio.ro">david@focusstudio.ro</a></p>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 Focus Studio. Toate drepturile rezervate.</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
