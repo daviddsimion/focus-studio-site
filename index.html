@@ -7,80 +7,45 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
   <header class="main-header">
     <img src="logo.png" alt="Focus Studio Logo" class="logo" />
-    <p class="tagline">Transformăm momentele în artă.</p>
+    <p class="tagline">Capturăm povești, nu doar imagini.</p>
     <nav>
       <a href="#despre">Despre</a>
-      <a href="#portofoliu">Portofoliu</a>
-      <a href="#servicii">Servicii</a>
-      <a href="#testimoniale">Testimoniale</a>
+      <a href="#galerie">Portofoliu</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <section id="hero">
-    <div class="hero-text">
-      <h1>Bine ai venit la Focus Studio</h1>
-      <p>Viziune. Emoție. Perfecțiune vizuală.</p>
+  <section id="despre">
+    <h2>Despre</h2>
+    <div class="animated-box">
+      <p>Focus Studio s-a născut din pasiunea unui tânăr din Slobozia care și-a dorit să transforme momente în artă. Oferim servicii de fotografie și videografie exclusiviste, fiecare cadru fiind o poveste spusă cu rafinament.</p>
     </div>
   </section>
 
-  <main>
+  <section id="galerie">
+    <h2>Portofoliu</h2>
+    <div class="gallery">
+      <img src="poza1.png" alt="Portofoliu 1" />
+      <img src="poza2.png" alt="Portofoliu 2" />
+      <img src="cand_trandafirii.png" alt="Portofoliu 3" />
+    </div>
+  </section>
 
-    <section id="despre">
-      <h2>Despre mine</h2>
-      <div class="animated-box">
-        <p>Salut! Eu sunt David, un tânăr din Slobozia pasionat de fotografie, editare și tot ce ține de exprimarea prin imagine. Focus Studio e mai mult decât un business — e povestea mea spusă în cadre perfecte.</p>
-      </div>
-    </section>
-
-    <section id="portofoliu">
-      <h2>Portofoliu</h2>
-      <div class="gallery">
-        <img src="poza1.png" alt="Portofoliu 1" />
-        <img src="poza2.png" alt="Portofoliu 2" />
-        <img src="cand_trandafirii.png" alt="Portofoliu 3" />
-      </div>
-    </section>
-
-    <section id="servicii">
-      <h2>Servicii</h2>
-      <ul class="services-list">
-        <li>📸 Ședințe foto profesionale (portret, eveniment, fashion)</li>
-        <li>🎥 Filmări video pentru evenimente sau content online</li>
-        <li>💻 Montaj și editare video/foto profesională</li>
-        <li>🎨 Branding vizual pentru afaceri</li>
-      </ul>
-    </section>
-
-    <section id="testimoniale">
-      <h2>Ce spun clienții</h2>
-      <blockquote>"Experiență extraordinară, David are ochi pentru detalii și o energie pozitivă incredibilă!"</blockquote>
-      <blockquote>"Focus Studio a reușit să surprindă exact vibe-ul evenimentului nostru. Mulțumim!"</blockquote>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>📱 Telefon: 0731748445</p>
-      <p>📸 Instagram Business: <a href="https://instagram.com/focus.studio.ro" target="_blank">@focus.studio.ro</a></p>
-      <p>👤 Instagram Personal: <a href="https://instagram.com/daviddsimion" target="_blank">@daviddsimion</a></p>
-    </section>
-
-  </main>
+  <section id="contact">
+    <h2>Contact</h2>
+    <ul class="services-list">
+      <li>Instagram: <a href="https://instagram.com/focus.studio.ro" target="_blank">@focus.studio.ro</a></li>
+      <li>Telefon: 0731748445</li>
+      <li>Email: contact@focusstudio.ro</li>
+    </ul>
+  </section>
 
   <footer>
-    <p>&copy; 2025 Focus Studio. Toate drepturile rezervate.</p>
+    &copy; 2025 Focus Studio. Toate drepturile rezervate.
   </footer>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      document.querySelectorAll('.animated-box').forEach(el => {
-        el.classList.add('visible');
-      });
-    });
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
