@@ -7,91 +7,77 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #0f0f0f; /* un negru un pic mai moale */
+  background: #121212;
   color: #d4af37; /* gold */
-  line-height: 1.65;
-  padding: 0 20px 100px; /* spațiu pt footer */
+  line-height: 1.6;
+  padding: 0 20px 80px; /* spațiu pt footer */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  scroll-behavior: smooth;
 }
 
-/* Links */
+/* Linkuri */
 a {
   color: #d4af37;
   text-decoration: none;
-  font-weight: 600;
-  transition: color 0.25s ease, text-shadow 0.25s ease;
+  transition: color 0.3s ease;
 }
 a:hover {
   color: #fff;
-  text-shadow: 0 0 8px #d4af37;
 }
 
 /* Header */
 .main-header {
-  background: linear-gradient(90deg, #1a1a1a, #000);
+  background: #000;
   padding: 30px 20px;
   text-align: center;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.6);
-  border-bottom: 2px solid #d4af37;
-  backdrop-filter: saturate(180%) blur(10px);
+  box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
 }
 
 .logo {
-  height: 100px;
-  animation: float 4s ease-in-out infinite;
-  filter: drop-shadow(0 0 5px #d4af37);
-  transition: transform 0.3s ease;
-  cursor: pointer;
-}
-.logo:hover {
-  transform: scale(1.05) rotate(-3deg);
+  height: 90px;
+  animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 4px #d4af37);
+  margin: 0 auto;
+  display: block;
 }
 
 .tagline {
   font-style: italic;
-  margin-top: 12px;
+  margin-top: 10px;
   color: #bfa743;
-  font-size: 1.2rem;
-  text-shadow: 0 0 10px #d4af37;
-  letter-spacing: 1px;
-  font-weight: 500;
+  font-size: 1.1rem;
+  text-shadow: 0 0 8px #d4af37;
 }
 
 nav {
-  margin-top: 30px;
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
 }
 
 nav a {
-  margin: 0 18px;
   font-weight: 700;
   text-transform: uppercase;
-  font-size: 1.1rem;
-  letter-spacing: 2px;
-  padding-bottom: 3px;
-  border-bottom: 2px solid transparent;
-  transition: border-color 0.3s ease;
-}
-nav a:hover {
-  border-color: #d4af37;
+  font-size: 1rem;
+  letter-spacing: 1.5px;
 }
 
 /* Sections */
 section {
   max-width: 900px;
-  margin: 70px auto;
-  background: linear-gradient(145deg, #191919, #111);
-  padding: 45px 40px;
-  border-radius: 25px;
-  box-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
+  margin: 60px auto;
+  background: #1a1a1a;
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
   opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.9s ease, transform 0.9s ease;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 section.visible {
@@ -100,54 +86,53 @@ section.visible {
 }
 
 section h2 {
-  font-size: 2.8rem;
-  margin-bottom: 28px;
+  font-size: 2.4rem;
+  margin-bottom: 25px;
   color: #d4af37;
-  text-shadow: 0 0 15px #d4af37;
+  text-shadow: 0 0 12px #d4af37;
   font-weight: 900;
-  letter-spacing: 2.5px;
+  letter-spacing: 2px;
   text-align: center;
-  font-family: 'Segoe UI Black', sans-serif;
 }
 
 /* Galerie */
 .gallery {
-  display: flex;
-  gap: 35px;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  justify-items: center;
+  align-items: center;
+  padding-top: 10px;
 }
 
 .gallery img {
-  width: 300px;
-  border-radius: 22px;
-  box-shadow: 0 0 30px #d4af37;
+  width: 100%;
+  max-width: 280px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px #d4af37;
   cursor: pointer;
-  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.6s ease;
-  filter: brightness(0.9);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
+
 .gallery img:hover {
-  transform: scale(1.12) rotate(1.5deg);
-  box-shadow: 0 0 50px #fff, 0 0 60px #d4af37;
-  filter: brightness(1);
-  z-index: 2;
+  transform: scale(1.1);
+  box-shadow: 0 0 35px #fff;
 }
 
 /* Lista servicii */
 .services-list {
   list-style: none;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: #d4af37;
-  max-width: 500px;
+  max-width: 400px;
   margin: 0 auto;
+  padding-left: 0;
 }
 
 .services-list li {
-  margin: 18px 0;
-  padding-left: 22px;
+  margin: 15px 0;
+  padding-left: 25px;
   position: relative;
-  font-weight: 600;
-  letter-spacing: 0.5px;
 }
 
 .services-list li::before {
@@ -155,9 +140,8 @@ section h2 {
   position: absolute;
   left: 0;
   color: #fff;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   top: 0;
-  filter: drop-shadow(0 0 3px #d4af37);
 }
 
 /* Footer */
@@ -165,15 +149,19 @@ footer {
   background: #000;
   color: #d4af37;
   text-align: center;
-  padding: 22px 15px;
+  padding: 15px 20px;
   position: fixed;
   bottom: 0;
+  left: 0;
   width: 100%;
-  font-weight: 700;
-  font-size: 1.1rem;
-  box-shadow: 0 -4px 20px rgba(212, 175, 55, 0.7);
-  letter-spacing: 1.2px;
-  font-family: 'Segoe UI Black', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 -4px 10px rgba(212, 175, 55, 0.6);
+  letter-spacing: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
 }
 
 /* Animations */
@@ -186,23 +174,23 @@ footer {
   }
 }
 
-/* Back to top button */
+/* Buton back to top */
 #back-to-top {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  background: #b8860b;
+  background: #b8860b; /* gold subtil */
   border: none;
   border-radius: 50%;
-  width: 48px;
-  height: 48px;
+  width: 45px;
+  height: 45px;
   color: #121212;
-  font-size: 2rem;
+  font-size: 1.8rem;
   cursor: pointer;
-  box-shadow: 0 0 12px rgba(184, 134, 11, 0.8);
+  box-shadow: 0 0 8px rgba(184, 134, 11, 0.6);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.3s ease;
   z-index: 1100;
   display: flex;
   align-items: center;
@@ -216,30 +204,60 @@ footer {
 }
 
 #back-to-top:hover {
-  background: #d4af37;
-  box-shadow: 0 0 18px rgba(212, 175, 55, 1);
+  background: #d4af37; /* gold mai deschis */
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.9);
 }
 
 /* Responsive */
-@media (max-width: 700px) {
-  .gallery {
+@media (max-width: 900px) {
+  nav {
     flex-direction: column;
-    align-items: center;
+    gap: 15px;
   }
 
-  .gallery img {
-    width: 90%;
-    max-width: 350px;
-  }
-
-  nav a {
-    display: block;
-    margin: 12px 0;
-    font-size: 1.3rem;
+  .main-header {
+    padding: 20px 10px;
   }
 
   section {
-    margin: 50px 15px;
-    padding: 30px 25px;
+    margin: 40px 15px;
+    padding: 30px 20px;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+
+  .gallery img {
+    max-width: 90%;
+  }
+
+  .services-list {
+    max-width: 100%;
+    padding-left: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .logo {
+    height: 60px;
+  }
+
+  section h2 {
+    font-size: 1.8rem;
+  }
+
+  footer {
+    font-size: 0.85rem;
+    padding: 12px 10px;
+  }
+
+  #back-to-top {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    bottom: 20px;
+    right: 20px;
   }
 }
