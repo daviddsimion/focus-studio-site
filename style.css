@@ -6,263 +6,235 @@
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #121212;
+  color: #d4af37; /* aur */
   line-height: 1.6;
-  background: linear-gradient(to bottom, #fefefe, #e3f2fd);
-  color: #222;
   padding: 0 20px;
+  scroll-behavior: smooth;
 }
 
 a {
-  color: #007BFF;
+  color: #d4af37;
   text-decoration: none;
+  font-weight: 600;
   transition: color 0.3s ease;
 }
-a:hover {
-  color: #0056b3;
+
+a:hover,
+a:focus {
+  color: #fff;
+  outline: none;
+  text-shadow: 0 0 5px #d4af37;
 }
 
 /* Header */
 .main-header {
+  background: #000;
+  padding: 30px 20px;
   text-align: center;
-  padding: 40px 20px;
-  background: #fff;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
+  box-shadow: 0 0 20px #d4af37aa;
 }
+
 .logo {
-  height: 80px;
-  animation: float 2s ease-in-out infinite;
+  height: 70px;
+  margin-bottom: 10px;
+  animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 5px #d4af37);
 }
+
 .tagline {
   font-style: italic;
-  color: #555;
+  font-size: 1.3rem;
+  color: #d4af37cc;
+  margin-bottom: 15px;
+  user-select: none;
 }
-nav {
-  margin-top: 20px;
-}
+
 nav a {
-  margin: 0 15px;
-  font-weight: bold;
+  margin: 0 12px;
+  font-weight: 700;
+  font-size: 1.1rem;
   text-transform: uppercase;
+  padding: 8px 15px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav a:hover,
+nav a:focus {
+  background-color: #d4af37;
+  color: #000;
+  box-shadow: 0 0 15px #d4af37cc;
+  outline: none;
 }
 
 /* Hero */
 #hero {
   background: url('hero-bg.jpg') no-repeat center center/cover;
-  height: 60vh;
+  height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: #d4af37;
   text-align: center;
-  animation: fadeIn 1.5s ease-in-out;
+  position: relative;
+  filter: drop-shadow(0 0 5px #d4af37);
+  animation: fadeIn 2s ease forwards;
 }
+
 .hero-text {
-  background: rgba(0,0,0,0.5);
-  padding: 30px;
+  background: rgba(0,0,0,0.7);
+  padding: 30px 40px;
   border-radius: 20px;
+  box-shadow: 0 0 20px #d4af37cc;
+  font-size: 1.4rem;
+  user-select: none;
+  max-width: 90vw;
 }
 
 /* Secțiuni */
-section {
-  padding: 60px 20px;
-  animation: fadeUp 1s ease forwards;
-  opacity: 0;
+main {
+  max-width: 900px;
+  margin: 60px auto 40px;
+  padding: 0 20px;
 }
+
+section {
+  margin-bottom: 70px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 section h2 {
-  font-size: 2rem;
+  font-size: 2.2rem;
   margin-bottom: 20px;
-  color: #333;
+  color: #d4af37;
+  text-shadow: 0 0 7px #d4af37bb;
+  user-select: none;
+}
+
+p, li, blockquote {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #f5f5dc;
+  max-width: 700px;
+  margin: 0 auto 10px auto;
+}
+
+.services-list {
+  list-style: none;
+  max-width: 700px;
+  margin: auto;
+  padding: 0;
+}
+
+.services-list li {
+  background: #222;
+  padding: 18px 25px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px #d4af37aa;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.services-list li:hover {
+  background: #d4af37;
+  color: #000;
+  cursor: pointer;
+  font-weight: 700;
 }
 
 /* Galerie */
 .gallery {
   display: flex;
-  gap: 20px;
   flex-wrap: wrap;
+  gap: 25px;
   justify-content: center;
-}
-.gallery img {
-  width: 300px;
-  height: auto;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  transition: transform 0.4s ease;
-}
-.gallery img:hover {
-  transform: scale(1.05);
+  max-width: 900px;
+  margin: auto;
 }
 
-/* Listă servicii */
-.services-list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+.gallery img {
+  width: 280px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px #d4af37bb;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+  user-select: none;
 }
-.services-list li {
-  background: #fafafa;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+
+.gallery img:hover,
+.gallery img:focus {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px #fff;
+  outline: none;
 }
 
 /* Testimoniale */
-#testimoniale blockquote {
+blockquote {
   font-style: italic;
-  padding: 20px;
-  background: #f9f9f9;
-  border-left: 4px solid #007BFF;
-  margin-bottom: 20px;
+  background: #222;
+  border-left: 6px solid #d4af37;
+  padding: 20px 25px;
+  max-width: 700px;
+  margin: 20px auto;
+  color: #f5f5dc;
+  box-shadow: 0 0 20px #d4af37aa;
+  user-select: none;
 }
 
 /* Footer */
 footer {
-  background: #222;
-  color: #fff;
-  padding: 20px;
+  background: #000;
   text-align: center;
+  padding: 25px 20px;
+  color: #d4af37;
+  font-weight: 600;
+  user-select: none;
+  box-shadow: 0 0 15px #d4af37cc inset;
 }
 
 /* Animații */
 @keyframes float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.98); }
-  to { opacity: 1; transform: scale(1); }
-}
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-#chat-container {
-    width: 300px;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    border-radius: 20px;
-    overflow: hidden;
-    background: #121212;
-    color: white;
-    font-family: 'Segoe UI', sans-serif;
-    box-shadow: 0 0 20px #ff4da6;
-    z-index: 9999;
-}
-
-#chat-header {
-    background: #ff4da6;
-    padding: 10px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.1em;
-}
-
-#chat-box {
-    max-height: 250px;
-    overflow-y: auto;
-    padding: 10px;
-    font-size: 0.95em;
-}
-
-    #chat-box div {
-        margin-bottom: 10px;
-    }
-
-.bot-msg {
-    background: #333;
-    padding: 8px 12px;
-    border-radius: 12px;
-    width: fit-content;
-    animation: fadeIn 0.3s ease-in-out;
-}
-
-.user-msg {
-    background: #ff4da6;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 12px;
-    align-self: flex-end;
-    margin-left: auto;
-    width: fit-content;
-    animation: fadeIn 0.3s ease-in-out;
-}
-
-#chat-input {
-    width: 100%;
-    border: none;
-    padding: 10px;
-    box-sizing: border-box;
-    font-size: 1em;
-    outline: none;
-    border-top: 1px solid #ff4da6;
-    background: #1e1e1e;
-    color: white;
+  50% { transform: translateY(-15px); }
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-#chat-box {
-    max-height: 250px;
-    overflow-y: auto;
-    padding: 10px;
-    font-size: 0.95em;
-    display: flex;
-    flex-direction: column;
-    /* Ascunde scrollbar-ul (pentru Chrome, Edge, Safari) */
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE 10+ */
-}
-
-    #chat-box::-webkit-scrollbar {
-        display: none; /* Chrome, Safari, Opera */
-    }
-#despre p {
-    font-size: 1.2rem; /* mărește fontul */
-    line-height: 1.6; /* pentru aerisire */
-    max-width: 700px; /* ca să nu fie textul prea lat */
-    margin: 0 auto; /* centru */
-    padding: 0 15px; /* puțin padding să nu atingă marginile */
-    color: #333; /* un gri închis, mai confortabil la ochi decât negru total */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* font modern, curat */
-}
-.animated-box {
-    max-width: 700px;
-    margin: 20px auto 40px auto;
-    padding: 25px 30px;
-    background: #fff;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    font-size: 1.2rem;
-    line-height: 1.6;
-    color: #333;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  from {
     opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease-out;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
-    /* Clasa pentru când caseta e vizibilă în viewport */
-    .animated-box.visible {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Responsive */
+@media (max-width: 800px) {
+  .gallery img {
+    width: 90vw;
+  }
+  
+  nav a {
+    font-size: 1rem;
+    padding: 6px 10px;
+  }
 
-main {
-    padding: 120px 40px 40px; /* înălțimea headerului e 80px, aici e 120px ca să las spațiu și la secțiunea hero */
-    max-width: 800px;
-    margin: auto;
+  main {
+    margin: 40px auto 30px;
+    padding: 0 15px;
+  }
 }
-
