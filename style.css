@@ -1,4 +1,4 @@
-/* Reset */
+/* Reset & Base */
 * {
   margin: 0;
   padding: 0;
@@ -7,15 +7,14 @@
 
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: #000;
-  color: #f5f5f5;
+  background-color: #0d0d0d;
+  color: #f0d98c;
   line-height: 1.6;
   overflow-x: hidden;
 }
 
-/* Linkuri */
 a {
-  color: #d4af37;
+  color: #f0d98c;
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -24,147 +23,118 @@ a:hover {
 }
 
 /* Header */
-.main-header {
+header {
+  background: #000;
+  padding: 20px 0;
   text-align: center;
-  padding: 30px 20px;
-  background: #111;
   position: sticky;
   top: 0;
   z-index: 999;
-  box-shadow: 0 4px 10px rgba(212, 175, 55, 0.2);
+  box-shadow: 0 4px 12px rgba(240, 217, 140, 0.2);
 }
+
 .logo {
-  height: 80px;
-  animation: float 2.5s ease-in-out infinite;
+  height: 70px;
+  animation: float 3s ease-in-out infinite;
 }
-.tagline {
-  color: #d4af37;
-  font-style: italic;
-  margin-top: 10px;
-}
+
 nav {
-  margin-top: 20px;
+  margin-top: 15px;
 }
 nav a {
-  margin: 0 10px;
+  margin: 0 15px;
   font-weight: bold;
-  text-transform: uppercase;
   font-size: 1.1rem;
+  text-transform: uppercase;
 }
 
 /* Hero */
 #hero {
-  background: url('hero-bg.jpg') no-repeat center center/cover;
-  height: 60vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9)),
+              url('poza1.png') no-repeat center center/cover;
+  height: 90vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
+
 .hero-text {
-  background: rgba(0, 0, 0, 0.7);
-  padding: 30px 20px;
-  border-radius: 15px;
-  color: #f5f5f5;
-  animation: fadeIn 2s ease-in-out;
-}
-.hero-text h1 {
-  font-size: 2.5rem;
-  color: #d4af37;
+  color: #f0d98c;
+  background: rgba(0,0,0,0.6);
+  padding: 30px;
+  border-radius: 20px;
+  animation: fadeIn 2s ease;
 }
 
-/* Secțiuni */
+/* Secțiuni generale */
 section {
   padding: 60px 20px;
-  animation: fadeUp 1s ease forwards;
-  opacity: 0;
-}
-section h2 {
-  color: #d4af37;
-  font-size: 2rem;
-  margin-bottom: 20px;
   text-align: center;
-}
-p, li, blockquote {
-  color: #ddd;
-}
-
-/* Descriere */
-.animated-box {
-  max-width: 800px;
-  margin: auto;
-  padding: 25px 30px;
-  background: #111;
-  border: 1px solid #d4af37;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.2);
-  font-size: 1.2rem;
-  transition: all 0.8s ease-out;
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
 }
-.animated-box.visible {
+section.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+h2 {
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+  color: #f0d98c;
+  text-shadow: 0 0 5px #000;
 }
 
 /* Galerie */
 .gallery {
   display: flex;
+  gap: 20px;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
 }
 .gallery img {
   width: 300px;
-  border-radius: 10px;
-  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
-  transition: transform 0.3s ease;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(240, 217, 140, 0.2);
+  transition: transform 0.4s ease;
 }
 .gallery img:hover {
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 
 /* Servicii */
 .services-list {
-  list-style: none;
-  max-width: 800px;
-  margin: auto;
-  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 700px;
+  margin: 0 auto;
 }
 .services-list li {
-  background: #111;
-  border-left: 4px solid #d4af37;
+  background: #1a1a1a;
   padding: 20px;
-  margin-bottom: 15px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(212, 175, 55, 0.1);
+  border-radius: 15px;
+  list-style: none;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
 }
 
 /* Testimoniale */
-blockquote {
+#testimoniale blockquote {
   font-style: italic;
-  background: #111;
   padding: 20px;
-  border-left: 4px solid #d4af37;
-  max-width: 800px;
-  margin: 0 auto 20px auto;
-  border-radius: 10px;
-}
-
-/* Contact */
-#contact p {
-  text-align: center;
-  font-size: 1.1rem;
-  margin: 10px 0;
+  background: #1f1f1f;
+  border-left: 5px solid #f0d98c;
+  margin-bottom: 20px;
 }
 
 /* Footer */
 footer {
-  background: #111;
-  color: #d4af37;
+  background: #000;
+  color: #f0d98c;
+  padding: 15px;
   text-align: center;
-  padding: 20px;
   font-size: 0.9rem;
 }
 
@@ -173,25 +143,26 @@ footer {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
 }
+
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.95); }
   to { opacity: 1; transform: scale(1); }
 }
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
-}
 
 /* Responsive */
 @media (max-width: 768px) {
-  .hero-text h1 {
-    font-size: 1.8rem;
+  .gallery {
+    flex-direction: column;
+    align-items: center;
   }
+
   nav a {
     display: block;
     margin: 10px 0;
   }
-  .gallery img {
-    width: 90%;
+
+  .hero-text {
+    padding: 20px;
+    font-size: 1rem;
   }
 }
