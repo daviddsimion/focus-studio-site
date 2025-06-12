@@ -209,12 +209,51 @@ footer {
   }
 }
 footer {
-  padding: 15px 20px;
-  font-size: 1rem; /* mai mic decât înainte */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   background: #000;
   color: #d4af37;
+  padding: 12px 20px;
+  font-weight: 700;
   text-align: center;
-  box-shadow: 0 0 10px #d4af37cc inset;
+  box-shadow:
+    0 0 10px #d4af37cc,
+    0 0 20px #d4af37aa,
+    inset 0 0 15px #d4af37ff;
   user-select: none;
-  margin-top: 50px;
+  font-size: 1rem;
+  z-index: 9999;
+  transition: box-shadow 0.3s ease;
+  cursor: default;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+footer:hover {
+  box-shadow:
+    0 0 20px #ffd700ee,
+    0 0 40px #ffd700cc,
+    inset 0 0 30px #ffd700ff;
+  color: #fff8dc;
+}
+
+/* Animație subtilă pentru glow continuu */
+@keyframes goldGlow {
+  0%, 100% {
+    box-shadow:
+      0 0 10px #d4af37cc,
+      0 0 20px #d4af37aa,
+      inset 0 0 15px #d4af37ff;
+  }
+  50% {
+    box-shadow:
+      0 0 15px #ffd700dd,
+      0 0 30px #ffd700bb,
+      inset 0 0 20px #ffd700ff;
+  }
+}
+
+footer {
+  animation: goldGlow 3s ease-in-out infinite;
 }
