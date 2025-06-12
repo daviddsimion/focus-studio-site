@@ -179,4 +179,35 @@ footer {
     margin: 40px 15px;
     padding: 30px 20px;
   }
+  /* Buton back to top */
+#back-to-top {
+  position: fixed;
+  bottom: 80px;
+  right: 30px;
+  background: #d4af37;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 2rem;
+  color: #121212;
+  cursor: pointer;
+  box-shadow: 0 0 15px #d4af37;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 1100;
+}
+
+#back-to-top.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Parallax simplu pentru galerie */
+.gallery img {
+  will-change: transform;
+  transition: transform 0.2s ease-out;
+}
+
 }
