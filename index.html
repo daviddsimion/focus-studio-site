@@ -88,5 +88,13 @@
       document.getElementById("loader").style.display = "none";
     });
   </script>
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll('.animated-box').forEach(el => {
+      el.classList.add('visible');
+    });
+  });
+</script>
+
 </body>
 </html>
