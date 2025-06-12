@@ -1,259 +1,197 @@
 /* Reset */
 * {
-  margin: 0; padding: 0; box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  background: #121212;
-  color: #d4af37;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', sans-serif;
+  background: #000;
+  color: #f5f5f5;
   line-height: 1.6;
-  scroll-behavior: smooth;
-  padding: 0 20px 40px;
+  overflow-x: hidden;
 }
 
-header {
-  background: #000;
-  padding: 30px 0;
+/* Linkuri */
+a {
+  color: #d4af37;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+a:hover {
+  color: #fff;
+}
+
+/* Header */
+.main-header {
   text-align: center;
+  padding: 30px 20px;
+  background: #111;
   position: sticky;
   top: 0;
   z-index: 999;
-  box-shadow: 0 0 25px #d4af37aa;
+  box-shadow: 0 4px 10px rgba(212, 175, 55, 0.2);
 }
-
-header img {
-  height: 70px;
-  filter: drop-shadow(0 0 8px #d4af37);
-  animation: float 4s ease-in-out infinite;
+.logo {
+  height: 80px;
+  animation: float 2.5s ease-in-out infinite;
 }
-
+.tagline {
+  color: #d4af37;
+  font-style: italic;
+  margin-top: 10px;
+}
 nav {
-  margin-top: 15px;
+  margin-top: 20px;
 }
-
 nav a {
-  color: #d4af37;
+  margin: 0 10px;
+  font-weight: bold;
   text-transform: uppercase;
-  font-weight: 700;
-  margin: 0 15px;
-  text-decoration: none;
-  padding: 8px 15px;
-  border-radius: 12px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  user-select: none;
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
-nav a:hover, nav a:focus {
-  background-color: #d4af37;
-  color: #000;
-  outline: none;
-  box-shadow: 0 0 20px #d4af37bb;
-  cursor: pointer;
-}
-
+/* Hero */
 #hero {
-  height: 65vh;
-  background: url('poza1.png') center/cover no-repeat;
+  background: url('hero-bg.jpg') no-repeat center center/cover;
+  height: 60vh;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   text-align: center;
+}
+.hero-text {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 30px 20px;
+  border-radius: 15px;
+  color: #f5f5f5;
+  animation: fadeIn 2s ease-in-out;
+}
+.hero-text h1 {
+  font-size: 2.5rem;
   color: #d4af37;
-  filter: drop-shadow(0 0 6px #d4af37);
-  margin-bottom: 50px;
 }
 
-#hero h1 {
-  font-size: 3rem;
-  text-shadow: 0 0 20px #d4af37cc;
-  user-select: none;
-  background: rgba(0,0,0,0.6);
-  padding: 20px 40px;
-  border-radius: 20px;
-  animation: fadeInDown 1.5s ease forwards;
-}
-
-main {
-  max-width: 900px;
-  margin: auto;
-}
-
+/* Secțiuni */
 section {
-  margin-bottom: 70px;
+  padding: 60px 20px;
+  animation: fadeUp 1s ease forwards;
+  opacity: 0;
+}
+section h2 {
+  color: #d4af37;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+p, li, blockquote {
+  color: #ddd;
+}
+
+/* Descriere */
+.animated-box {
+  max-width: 800px;
+  margin: auto;
+  padding: 25px 30px;
+  background: #111;
+  border: 1px solid #d4af37;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.2);
+  font-size: 1.2rem;
+  transition: all 0.8s ease-out;
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 1s ease, transform 1s ease;
 }
-
-section.visible {
+.animated-box.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-h2 {
-  font-size: 2.2rem;
-  color: #d4af37;
-  text-shadow: 0 0 10px #d4af37cc;
-  margin-bottom: 20px;
-  user-select: none;
-}
-
-p, li, blockquote {
-  font-size: 1.2rem;
-  color: #f5f5dc;
-  max-width: 700px;
-  margin: 0 auto 15px;
-  line-height: 1.7;
-}
-
-ul {
-  list-style: none;
-  padding-left: 0;
-  max-width: 700px;
-  margin: auto;
-}
-
-ul li {
-  background: #222;
-  padding: 15px 25px;
-  border-radius: 15px;
-  margin-bottom: 18px;
-  box-shadow: 0 0 15px #d4af37aa;
-  transition: background-color 0.3s ease;
-  user-select: none;
-}
-
-ul li:hover {
-  background: #d4af37;
-  color: #000;
-  font-weight: 700;
-  cursor: pointer;
-}
-
+/* Galerie */
 .gallery {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
   justify-content: center;
-  max-width: 900px;
-  margin: auto;
+  gap: 20px;
 }
-
 .gallery img {
-  width: 280px;
-  border-radius: 20px;
-  box-shadow: 0 0 25px #d4af37bb;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  cursor: pointer;
-  user-select: none;
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+  transition: transform 0.3s ease;
+}
+.gallery img:hover {
+  transform: scale(1.05);
 }
 
-.gallery img:hover,
-.gallery img:focus {
-  transform: scale(1.1);
-  box-shadow: 0 0 40px #fff;
-  outline: none;
+/* Servicii */
+.services-list {
+  list-style: none;
+  max-width: 800px;
+  margin: auto;
+  padding: 0;
+}
+.services-list li {
+  background: #111;
+  border-left: 4px solid #d4af37;
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(212, 175, 55, 0.1);
 }
 
+/* Testimoniale */
 blockquote {
   font-style: italic;
-  background: #222;
-  border-left: 6px solid #d4af37;
-  padding: 20px 25px;
-  max-width: 700px;
-  margin: 20px auto;
-  color: #f5f5dc;
-  box-shadow: 0 0 20px #d4af37aa;
-  user-select: none;
+  background: #111;
+  padding: 20px;
+  border-left: 4px solid #d4af37;
+  max-width: 800px;
+  margin: 0 auto 20px auto;
+  border-radius: 10px;
 }
 
-footer {
-  background: #000;
+/* Contact */
+#contact p {
   text-align: center;
-  padding: 25px 20px;
-  color: #d4af37;
-  font-weight: 600;
-  user-select: none;
-  box-shadow: 0 0 15px #d4af37cc inset;
-  margin-top: 50px;
+  font-size: 1.1rem;
+  margin: 10px 0;
 }
 
+/* Footer */
+footer {
+  background: #111;
+  color: #d4af37;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+}
+
+/* Animații */
 @keyframes float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
+  50% { transform: translateY(-10px); }
 }
-
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Responsive */
-@media (max-width: 800px) {
-  .gallery img {
-    width: 90vw;
+@media (max-width: 768px) {
+  .hero-text h1 {
+    font-size: 1.8rem;
   }
-
   nav a {
-    margin: 0 8px;
-    font-size: 0.9rem;
-    padding: 6px 12px;
+    display: block;
+    margin: 10px 0;
   }
-}
-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: #000;
-  color: #d4af37;
-  padding: 12px 20px;
-  font-weight: 700;
-  text-align: center;
-  box-shadow:
-    0 0 10px #d4af37cc,
-    0 0 20px #d4af37aa,
-    inset 0 0 15px #d4af37ff;
-  user-select: none;
-  font-size: 1rem;
-  z-index: 9999;
-  transition: box-shadow 0.3s ease;
-  cursor: default;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-footer:hover {
-  box-shadow:
-    0 0 20px #ffd700ee,
-    0 0 40px #ffd700cc,
-    inset 0 0 30px #ffd700ff;
-  color: #fff8dc;
-}
-
-/* Animație subtilă pentru glow continuu */
-@keyframes goldGlow {
-  0%, 100% {
-    box-shadow:
-      0 0 10px #d4af37cc,
-      0 0 20px #d4af37aa,
-      inset 0 0 15px #d4af37ff;
+  .gallery img {
+    width: 90%;
   }
-  50% {
-    box-shadow:
-      0 0 15px #ffd700dd,
-      0 0 30px #ffd700bb,
-      inset 0 0 20px #ffd700ff;
-  }
-}
-
-footer {
-  animation: goldGlow 3s ease-in-out infinite;
 }
