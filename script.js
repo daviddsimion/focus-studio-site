@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleBackToTop();
   });
 
-  // Init
+  // Inițial
   revealOnScroll();
   parallaxEffect();
   toggleBackToTop();
