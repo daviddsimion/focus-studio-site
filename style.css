@@ -136,20 +136,32 @@ section h2 {
 }
 
 /* Footer */
+/* Footer fixat jos doar pe desktop */
 footer {
   background: #000;
   color: #d4af37;
   text-align: center;
   padding: 15px 10px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
   font-weight: 600;
   font-size: 1rem;
   box-shadow: 0 -4px 10px rgba(212, 175, 55, 0.6);
   letter-spacing: 1px;
   user-select: none;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000;
 }
+
+/* Pe mobil dezactivează fixarea și ajustează padding și font */
+@media (max-width: 700px) {
+  footer {
+    position: static; /* lasă-l să fie normal, nu fix */
+    padding: 20px 15px;
+    font-size: 0.95rem;
+  }
+}
+
 
 /* Animations */
 @keyframes float {
