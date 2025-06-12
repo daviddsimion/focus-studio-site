@@ -11,5 +11,5 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   window.addEventListener('scroll', revealOnScroll);
-  revealOnScroll(); // la load
+  revealOnScroll(); // rulează și la încărcare
 });
