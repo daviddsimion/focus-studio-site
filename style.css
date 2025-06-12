@@ -208,3 +208,22 @@ footer {
     padding: 6px 12px;
   }
 }
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #000;
+  color: #d4af37;
+  padding: 10px 20px;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: 0 0 15px #d4af37cc inset;
+  user-select: none;
+  font-size: 0.9rem;
+  z-index: 9999;
+}
+body {
+  padding-bottom: 40px; /* ca să nu se suprapună conținutul */
+}
+
