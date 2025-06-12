@@ -156,14 +156,14 @@ footer {
 /* Pe mobil dezactivează fixarea și ajustează padding și font, plus centrare */
 @media (max-width: 700px) {
   footer {
-    position: static; /* lasă-l să fie normal, nu fix */
+    position: static;
     padding: 15px 20px;
     font-size: 0.95rem;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    height: auto; /* să se adapteze la conținut */
+    height: auto;
     box-shadow: 0 -2px 8px rgba(212, 175, 55, 0.3);
   }
 }
@@ -183,7 +183,7 @@ footer {
   position: fixed;
   bottom: 40px;
   right: 40px;
-  background: #b8860b; /* gold subtil */
+  background: #b8860b;
   border: none;
   border-radius: 50%;
   width: 45px;
