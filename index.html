@@ -1,24 +1,16 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Focus Studio</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Loader -->
-  <div id="loader">
-    <div class="spinner"></div>
-  </div>
 
-  <!-- Header -->
   <header class="main-header">
-    <img src="logo.png" alt="Focus Studio Logo" class="logo">
-    <h1 class="tagline">Imortalizăm emoția fiecărui moment</h1>
+    <img src="logo.png" alt="Focus Studio Logo" class="logo" />
+    <p class="tagline">Transformăm momentele în artă.</p>
     <nav>
       <a href="#despre">Despre</a>
       <a href="#portofoliu">Portofoliu</a>
@@ -28,65 +20,67 @@
     </nav>
   </header>
 
-  <!-- Hero -->
   <section id="hero">
     <div class="hero-text">
-      <h2>Bine ai venit la Focus Studio</h2>
-      <p>Povestea unui tânăr din Slobozia pasionat de arta vizuală.</p>
+      <h1>Bine ai venit la Focus Studio</h1>
+      <p>Viziune. Emoție. Perfecțiune vizuală.</p>
     </div>
   </section>
 
-  <!-- Despre -->
-  <section id="despre">
-    <h2>Despre mine</h2>
-    <div class="animated-box">
-      <p>Sunt David, fondatorul Focus Studio. Din pasiune pentru fotografie și editare, am transformat un vis într-o realitate profesională. Fiecare cadru surprinde o poveste, iar fiecare detaliu contează.</p>
-    </div>
-  </section>
+  <main>
 
-  <!-- Portofoliu -->
-  <section id="portofoliu">
-    <h2>Portofoliu</h2>
-    <div class="gallery">
-      <img src="poza1.png" alt="Portofoliu 1">
-      <img src="poza2.png" alt="Portofoliu 2">
-      <img src="cand_trandafirii.png" alt="Portofoliu 3">
-    </div>
-  </section>
+    <section id="despre">
+      <h2>Despre mine</h2>
+      <div class="animated-box">
+        <p>Salut! Eu sunt David, un tânăr din Slobozia pasionat de fotografie, editare și tot ce ține de exprimarea prin imagine. Focus Studio e mai mult decât un business — e povestea mea spusă în cadre perfecte.</p>
+      </div>
+    </section>
 
-  <!-- Servicii -->
-  <section id="servicii">
-    <h2>Servicii</h2>
-    <ul class="services-list">
-      <li>Fotografie de eveniment</li>
-      <li>Videografie cinematică</li>
-      <li>Editare profesională</li>
-      <li>Sesiuni foto personalizate</li>
-    </ul>
-  </section>
+    <section id="portofoliu">
+      <h2>Portofoliu</h2>
+      <div class="gallery">
+        <img src="poza1.png" alt="Portofoliu 1" />
+        <img src="poza2.png" alt="Portofoliu 2" />
+        <img src="cand_trandafirii.png" alt="Portofoliu 3" />
+      </div>
+    </section>
 
-  <!-- Testimoniale -->
-  <section id="testimoniale">
-    <h2>Ce spun clienții</h2>
-    <blockquote>"Focus Studio a surprins exact ce aveam nevoie! Emoție pură în fiecare fotografie."</blockquote>
-    <blockquote>"Un profesionist adevărat, dedicat și creativ. Recomand cu toată încrederea!"</blockquote>
-  </section>
+    <section id="servicii">
+      <h2>Servicii</h2>
+      <ul class="services-list">
+        <li>📸 Ședințe foto profesionale (portret, eveniment, fashion)</li>
+        <li>🎥 Filmări video pentru evenimente sau content online</li>
+        <li>💻 Montaj și editare video/foto profesională</li>
+        <li>🎨 Branding vizual pentru afaceri</li>
+      </ul>
+    </section>
 
-  <!-- Contact -->
-  <section id="contact">
-    <h2>Hai să colaborăm!</h2>
-    <p>Scrie-mi pe <a href="https://instagram.com/focus.studio.ro" target="_blank">Instagram @focus.studio.ro</a> sau sună-mă la <a href="tel:+40731748445">0731 748 445</a></p>
-  </section>
+    <section id="testimoniale">
+      <h2>Ce spun clienții</h2>
+      <blockquote>"Experiență extraordinară, David are ochi pentru detalii și o energie pozitivă incredibilă!"</blockquote>
+      <blockquote>"Focus Studio a reușit să surprindă exact vibe-ul evenimentului nostru. Mulțumim!"</blockquote>
+    </section>
 
-  <!-- Footer -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>📱 Telefon: 0731748445</p>
+      <p>📸 Instagram Business: <a href="https://instagram.com/focus.studio.ro" target="_blank">@focus.studio.ro</a></p>
+      <p>👤 Instagram Personal: <a href="https://instagram.com/daviddsimion" target="_blank">@daviddsimion</a></p>
+    </section>
+
+  </main>
+
   <footer>
-    <p>&copy; 2025 Focus Studio · Toate drepturile rezervate</p>
+    <p>&copy; 2025 Focus Studio. Toate drepturile rezervate.</p>
   </footer>
 
   <script>
-    window.addEventListener("load", () => {
-      document.getElementById("loader").style.display = "none";
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll('.animated-box').forEach(el => {
+        el.classList.add('visible');
+      });
     });
   </script>
+
 </body>
 </html>
