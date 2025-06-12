@@ -153,15 +153,20 @@ footer {
   z-index: 1000;
 }
 
-/* Pe mobil dezactivează fixarea și ajustează padding și font */
+/* Pe mobil dezactivează fixarea și ajustează padding și font, plus centrare */
 @media (max-width: 700px) {
   footer {
     position: static; /* lasă-l să fie normal, nu fix */
-    padding: 20px 15px;
+    padding: 15px 20px;
     font-size: 0.95rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: auto; /* să se adapteze la conținut */
+    box-shadow: 0 -2px 8px rgba(212, 175, 55, 0.3);
   }
 }
-
 
 /* Animations */
 @keyframes float {
