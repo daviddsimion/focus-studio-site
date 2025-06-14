@@ -1,34 +1,30 @@
-/* script.js */
-document.addEventListener('DOMContentLoaded', () => {
-  const sections = document.querySelectorAll('section');
-  const backToTopBtn = document.getElementById('back-to-top');
+// script.js
 
-  function revealSections() {
-    sections.forEach(section => {
-      const rect = section.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 100) {
-        section.classList.add('visible');
-      }
-    });
-  }
-
-  function toggleBackToTop() {
-    if (window.scrollY > 300) {
-      backToTopBtn.classList.add('show');
-    } else {
-      backToTopBtn.classList.remove('show');
+// Scroll-triggered fade-in animations
+const faders = document.querySelectorAll('.fade-in');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
     }
+  });
+}, { threshold: 0.1 });
+
+faders.forEach(fader => {
+  observer.observe(fader);
+});
+
+// Back to top button
+const backToTop = document.getElementById('back-to-top');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 300) {
+    backToTop.classList.add('show');
+  } else {
+    backToTop.classList.remove('show');
   }
+});
 
-  window.addEventListener('scroll', () => {
-    revealSections();
-    toggleBackToTop();
-  });
-
-  backToTopBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-
-  revealSections();
-  toggleBackToTop();
+backToTop.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 });
