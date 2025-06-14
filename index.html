@@ -7,45 +7,45 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <div class="hero-text">
-      <img src="logo.png" alt="Logo Focus Studio" class="logo" />
-      <h1>Focus Studio</h1>
-      <p>Transformăm emoțiile în amintiri vizuale</p>
+  <div class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <img src="logo.png" alt="Focus Studio Logo" class="logo">
+      <h1 class="hero-title">Focus Studio</h1>
+      <p class="hero-subtitle">Emoții capturate. Amintiri eterne.</p>
     </div>
-    <nav>
+    <nav class="nav-bar">
       <a href="#despre">Despre</a>
       <a href="#portofoliu">Portofoliu</a>
       <a href="#contact">Contact</a>
     </nav>
-  </header>
+  </div>
 
-  <!-- CLASELE "visible" sunt adăugate pentru a forța afișarea -->
-  <section id="despre" class="visible">
+  <section id="despre" class="section">
     <h2>Despre</h2>
-    <p>Un tânăr din Slobozia cu o pasiune uriașă pentru fotografie și videografie. Focus Studio este locul unde fiecare moment devine artă.</p>
+    <p>Sunt David, un tânăr din Slobozia cu un ochi artistic pentru fotografie și videografie. Focus Studio este proiectul meu de suflet, născut din pasiunea pentru editare și dorința de a transforma poveștile oamenilor în cadre de neuitat.</p>
   </section>
 
-  <section id="portofoliu" class="visible">
+  <section id="portofoliu" class="section">
     <h2>Portofoliu</h2>
-    <div class="gallery">
+    <div class="carousel">
       <img src="poza1.png" alt="Imagine 1">
       <img src="poza2.png" alt="Imagine 2">
       <img src="cand_trandafirii.png" alt="Imagine 3">
     </div>
   </section>
 
-  <section id="contact" class="visible">
+  <section id="contact" class="section">
     <h2>Contact</h2>
-    <ul>
-      <li><strong>Email:</strong> <a href="mailto:dumii273@gmail.com">dumii273@gmail.com</a></li>
-      <li><strong>Instagram:</strong> <a href="https://instagram.com/focus.studio.ro" target="_blank">@focus.studio.ro</a></li>
-      <li><strong>Telefon:</strong> 0731748445</li>
-    </ul>
+    <div class="contact-list">
+      <p><strong>Email:</strong> <a href="mailto:dumii273@gmail.com">dumii273@gmail.com</a></p>
+      <p><strong>Instagram:</strong> <a href="https://instagram.com/focus.studio.ro" target="_blank">@focus.studio.ro</a></p>
+      <p><strong>Telefon:</strong> 0731748445</p>
+    </div>
   </section>
 
   <footer>
-    &copy; 2025 Focus Studio. Toate drepturile rezervate.
+    <p>&copy; 2025 Focus Studio. Toate drepturile rezervate.</p>
   </footer>
 
   <button id="back-to-top">↑</button>
