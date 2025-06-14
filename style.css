@@ -1,114 +1,142 @@
-/* style.css */
-body {
+/* General */
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
   font-family: 'Segoe UI', sans-serif;
-  background: #111;
-  color: #d4af37;
+  background: #0e0e0e;
+  color: #f0d878;
+  line-height: 1.6;
   scroll-behavior: smooth;
 }
 
-header.main-header {
-  background: #000;
+/* Header */
+header {
   text-align: center;
-  padding: 30px 20px;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+  padding: 60px 20px 40px;
+  background: linear-gradient(to bottom, #000, #1a1a1a);
 }
-
 .logo {
-  height: 90px;
+  height: 80px;
+  margin-bottom: 15px;
   animation: float 3s ease-in-out infinite;
 }
-
-.tagline {
-  margin-top: 10px;
-  font-style: italic;
+.hero-text h1 {
+  font-size: 3rem;
+  color: #d4af37;
+}
+.hero-text p {
+  font-size: 1.2rem;
   color: #bfa743;
-  font-size: 1.1rem;
+  margin-top: 8px;
 }
 
+/* Navigation */
+nav {
+  margin-top: 30px;
+}
 nav a {
-  margin: 0 15px;
   color: #d4af37;
+  margin: 0 20px;
+  text-decoration: none;
   font-weight: bold;
   text-transform: uppercase;
-  text-decoration: none;
+  font-size: 1rem;
+}
+nav a:hover {
+  color: #fff;
 }
 
+/* Sections */
 section {
   padding: 60px 20px;
   max-width: 1000px;
   margin: auto;
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: all 0.8s ease;
 }
-
 section.visible {
   opacity: 1;
   transform: translateY(0);
 }
-
 h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+  color: #d4af37;
   text-align: center;
-  color: #fff;
-  text-shadow: 0 0 10px #d4af37;
 }
 
+/* Gallery */
 .gallery {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
 }
-
 .gallery img {
-  width: 300px;
-  border-radius: 16px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+  width: 280px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px #d4af37;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
-
 .gallery img:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 25px #fff;
 }
 
+/* Contact */
+#contact ul {
+  list-style: none;
+  font-size: 1.1rem;
+  text-align: center;
+}
+#contact li {
+  margin: 15px 0;
+}
+#contact a {
+  color: #f0d878;
+}
+#contact a:hover {
+  color: white;
+}
+
+/* Footer */
 footer {
   background: #000;
-  color: #d4af37;
   text-align: center;
   padding: 20px;
-  margin-top: 60px;
+  font-size: 0.9rem;
+  color: #d4af37;
+  box-shadow: 0 -3px 8px rgba(212, 175, 55, 0.5);
 }
 
+/* Back to top */
 #back-to-top {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 30px;
+  right: 30px;
   background: #d4af37;
-  color: #000;
+  color: #121212;
   border: none;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   font-size: 1.5rem;
   cursor: pointer;
-  box-shadow: 0 0 10px #d4af37;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s ease;
 }
-
 #back-to-top.show {
   opacity: 1;
   pointer-events: auto;
 }
 
+/* Animations */
 @keyframes float {
   0%, 100% {
     transform: translateY(0);
@@ -122,9 +150,16 @@ footer {
 @media (max-width: 700px) {
   .gallery img {
     width: 90%;
+    max-width: 350px;
   }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
   nav a {
-    display: block;
-    margin: 10px 0;
+    font-size: 1.1rem;
   }
 }
