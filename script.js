@@ -1,57 +1,53 @@
-// Afișează secțiunile la scroll
-const sections = document.querySelectorAll("section");
+document.addEventListener('DOMContentLoaded', () => {
+  const sections = document.querySelectorAll('section');
+  const galleryImages = document.querySelectorAll('.gallery img');
+  const backToTopBtn = document.getElementById('back-to-top');
 
-const appearOptions = {
-  threshold: 0.1,
-};
-
-const appearOnScroll = new IntersectionObserver(function(entries, observer) {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    entry.target.classList.add("visible");
-    observer.unobserve(entry.target);
-  });
-}, appearOptions);
-
-sections.forEach(section => {
-  appearOnScroll.observe(section);
-});
-
-// Scroll sus
-const backToTop = document.getElementById("back-to-top");
-
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 400) {
-    backToTop.classList.add("show");
-  } else {
-    backToTop.classList.remove("show");
-  }
-});
-
-backToTop.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}
-                          // Buton scroll to top
-const backToTopButton = document.getElementById("back-to-top");
-
-window.addEventListener("scroll", () => {
-  if (window.pageYOffset > 300) {
-    backToTopButton.classList.add("show");
-  } else {
-    backToTopButton.classList.remove("show");
+  // Reveal sections on scroll with fade-up effect
+  function revealOnScroll() {
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 150) {
+        section.classList.add('visible');
+      }
+    });
   }
 
-  // Animație la scroll pentru secțiuni
-  document.querySelectorAll("section").forEach(section => {
-    const rect = section.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 100) {
-      section.classList.add("visible");
+  // Parallax effect on gallery images
+  function parallaxEffect() {
+    galleryImages.forEach(img => {
+      const speed = 0.25;
+      const rect = img.getBoundingClientRect();
+      const offset = window.innerHeight - rect.top;
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        img.style.transform = `translateY(${offset * speed}px) scale(1.05)`;
+      } else {
+        img.style.transform = 'translateY(0) scale(1)';
+      }
+    });
+  }
+
+  // Show/hide back-to-top button
+  function toggleBackToTop() {
+    if (window.scrollY > 300) {
+      backToTopBtn.classList.add('show');
+    } else {
+      backToTopBtn.classList.remove('show');
     }
+  }
+
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
-});
 
-backToTopButton.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
+  window.addEventListener('scroll', () => {
+    revealOnScroll();
+    parallaxEffect();
+    toggleBackToTop();
+  });
 
-                          );
+  // Initial calls
+  revealOnScroll();
+  parallaxEffect();
+  toggleBackToTop();
+});
