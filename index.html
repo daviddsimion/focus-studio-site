@@ -1,49 +1,73 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Focus Studio</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Focus Studio - Transformăm emoțiile în artă vizuală. Fotografie și videografie profesională în Slobozia." />
+    <meta name="keywords" content="fotografie, videografie, Slobozia, studio foto, evenimente, portofoliu, Focus Studio, videograf Slobozia, fotograf Slobozia" />
+    <meta name="author" content="Focus Studio" />
+    <title>Focus Studio | Fotografie & Videografie Profesională</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="main-header">
-    <img src="logo.png" alt="Focus Studio Logo" class="logo" />
-    <h1>Focus Studio</h1>
-    <p class="subtitle">Transformăm emoțiile în artă vizuală</p>
-    <nav>
-      <a href="#despre">Despre</a>
-      <a href="#portofoliu">Portofoliu</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+    <header class="main-header">
+        <img src="logo.png" alt="Focus Studio Logo" class="logo" />
+        <div class="hero-content">
+            <h1>Focus Studio</h1>
+            <p class="subtitle">Transformăm emoțiile în artă vizuală</p>
+        </div>
+        <nav>
+            <a href="#despre">Despre</a>
+            <a href="#portofoliu">Portofoliu</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
 
-  <section id="despre" class="reveal">
-    <h2>Despre</h2>
-    <p>Focus Studio este rezultatul pasiunii unui tânăr din Slobozia pentru fotografie și videografie. Ne dedicăm în a transforma fiecare clipă într-o amintire artistică.</p>
-  </section>
+    <section id="despre" class="reveal">
+        <h2>Despre Noi</h2>
+        <p>Focus Studio este rezultatul pasiunii unui tânăr din Slobozia pentru fotografie și videografie. Ne dedicăm în a transforma fiecare clipă într-o amintire artistică, oferind servicii personalizate și creative pentru a surprinde esența evenimentelor și a momentelor speciale din viața ta.</p>
+        <p>Suntem aici pentru a te ajuta să economisești timp și să obții rezultate de impact, fie că este vorba de evenimente, portrete sau proiecte artistice. Ne place să experimentăm idei originale și inovatoare, creând conținut vizual cu adevărat memorabil.</p>
+    </section>
 
-  <section id="portofoliu" class="reveal">
-    <h2>Portofoliu</h2>
-    <div class="gallery">
-      <img src="poza1.png" alt="Imagine 1" />
-      <img src="poza2.png" alt="Imagine 2" />
-      <img src="cand_trandafirii.png" alt="Imagine 3" />
+    <section id="portofoliu" class="reveal">
+        <h2>Portofoliu</h2>
+        <div class="gallery">
+            <img src="poza1.png" alt="Imagine Portofoliu 1" data-full-src="poza1-full.png" />
+            <img src="poza2.png" alt="Imagine Portofoliu 2" data-full-src="poza2-full.png" />
+            <img src="cand_trandafirii.png" alt="Imagine Portofoliu 3" data-full-src="cand_trandafirii-full.png" />
+            <img src="poza4.png" alt="Imagine Portofoliu 4" data-full-src="poza4-full.png" />
+            <img src="poza5.png" alt="Imagine Portofoliu 5" data-full-src="poza5-full.png" />
+        </div>
+    </section>
+
+    <section id="contact" class="reveal">
+        <h2>Contact</h2>
+        <ul>
+            <li><span class="icon">✉️</span> Email: <a href="mailto:dumii273@gmail.com">dumii273@gmail.com</a></li>
+            <li><span class="icon">📸</span> Instagram: <a href="https://instagram.com/focus.studio.ro" target="_blank" rel="noopener noreferrer">@focus.studio.ro</a></li>
+            <li><span class="icon">📞</span> Telefon: <a href="tel:+40731748445">0731 748 445</a></li>
+        </ul>
+        <p class="contact-note">Suntem disponibili pentru discuții și proiecte noi. Nu ezita să ne contactezi pentru o colaborare fără judecată, plină de înțelegere și idei creative!</p>
+    </section>
+
+    <footer>
+        &copy; 2025 Focus Studio. Toate drepturile rezervate.
+    </footer>
+
+    <button id="back-to-top">↑</button>
+
+    <div id="lightbox-overlay" class="hidden">
+        <div id="lightbox-content">
+            <button id="lightbox-close">&times;</button>
+            <img id="lightbox-image" src="" alt="Imagine mărită" />
+            <button id="lightbox-prev">&#10094;</button>
+            <button id="lightbox-next">&#10095;</button>
+            <div id="lightbox-caption"></div>
+        </div>
     </div>
-  </section>
 
-  <section id="contact" class="reveal">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:dumii273@gmail.com">dumii273@gmail.com</a></p>
-    <p>Instagram: <a href="https://instagram.com/focus.studio.ro" target="_blank">@focus.studio.ro</a></p>
-    <p>Telefon: 0731 748 445</p>
-  </section>
-
-  <footer>
-    &copy; 2025 Focus Studio. Toate drepturile rezervate.
-  </footer>
-
-  <button id="back-to-top">↑</button>
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
