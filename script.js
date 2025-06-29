@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const sections = document.querySelectorAll('section');
+    const sections = document.querySelectorAll('section.reveal');
     const galleryImages = document.querySelectorAll('.gallery img');
     const backToTopBtn = document.getElementById('back-to-top');
 
@@ -12,6 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const lightboxNextBtn = document.getElementById('lightbox-next');
 
     let currentImageIndex = 0;
+    // Store all gallery items, useful for filtering
+    const allGalleryItems = Array.from(document.querySelectorAll('.gallery-item'));
+
 
     // Utility function for throttling scroll events
     const throttle = (func, limit) => {
@@ -31,79 +34,146 @@ document.addEventListener('DOMContentLoaded', () => {
     function revealOnScroll() {
         sections.forEach(section => {
             const rect = section.getBoundingClientRect();
-            // Adjust threshold for better reveal timing
-            if (rect.top < window.innerHeight - 180) { 
+            if (rect.top < window.innerHeight - 150) { 
                 section.classList.add('visible');
             }
         });
     }
 
-    // Parallax effect on gallery images
+    // Parallax effect on gallery images (only if elements exist)
     function parallaxEffect() {
-        galleryImages.forEach(img => {
-            const speed = 0.15; // Speed slightly reduced for subtlety
-            const rect = img.getBoundingClientRect();
-            const viewportMiddle = window.innerHeight / 2;
-            const imageMiddle = rect.top + rect.height / 2;
-            const offset = (viewportMiddle - imageMiddle) * speed;
+        if (galleryImages.length > 0) {
+            galleryImages.forEach(img => {
+                const speed = 0.1; // Reduced speed for subtlety
+                const rect = img.getBoundingClientRect();
+                const viewportMiddle = window.innerHeight / 2;
+                const imageMiddle = rect.top + rect.height / 2;
+                const offset = (viewportMiddle - imageMiddle) * speed;
 
-            if (rect.top < window.innerHeight && rect.bottom > 0) {
-                img.style.transform = `translateY(${offset}px) scale(1)`; // Parallax vertical
-            } else {
-                // Reset transform when out of view to avoid odd jumps
-                img.style.transform = 'translateY(0) scale(1)';
-            }
-        });
+                // Apply parallax only if image is within a reasonable distance of viewport
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    img.style.transform = `translateY(${offset}px) scale(1)`;
+                } else {
+                    img.style.transform = 'translateY(0) scale(1)'; // Reset when out of view
+                }
+            });
+        }
     }
 
     // Show/hide back-to-top button
     function toggleBackToTop() {
-        if (window.scrollY > 400) { // Show after scrolling down more
+        if (window.scrollY > 400) { 
             backToTopBtn.classList.add('show');
         } else {
             backToTopBtn.classList.remove('show');
         }
     }
 
-    // Open Lightbox
+    // Lightbox Functions
     function openLightbox(index) {
-        currentImageIndex = index;
-        const image = galleryImages[currentImageIndex];
-        lightboxImage.src = image.dataset.fullSrc || image.src; // Folosește data-full-src dacă există
-        lightboxCaption.textContent = image.alt;
-        lightboxOverlay.classList.add('show');
-        document.body.style.overflow = 'hidden'; // Blochează scroll-ul paginii
-    }
+        // Ensure we only open if the image is currently visible (for filtering)
+        const visibleImages = allGalleryItems.filter(item => item.classList.contains('visible-filtered') || !item.classList.contains('hidden'));
+        if (visibleImages.length === 0) return; // No visible images to open
 
-    // Close Lightbox
-    function closeLightbox() {
-        lightboxOverlay.classList.remove('show');
-        document.body.style.overflow = ''; // Permite scroll-ul paginii din nou
-    }
-
-    // Navigate Lightbox
-    function navigateLightbox(direction) {
-        currentImageIndex += direction;
-        if (currentImageIndex < 0) {
-            currentImageIndex = galleryImages.length - 1;
-        } else if (currentImageIndex >= galleryImages.length) {
+        currentImageIndex = visibleImages.indexOf(galleryImages[index]); // Get index within visible images
+        if (currentImageIndex === -1) { // If original index is hidden, find first visible
             currentImageIndex = 0;
         }
-        openLightbox(currentImageIndex); // Reutilizează funcția openLightbox
+
+        const imageToLoad = visibleImages[currentImageIndex];
+        lightboxImage.src = imageToLoad.dataset.fullSrc || imageToLoad.src;
+        lightboxCaption.textContent = imageToLoad.alt;
+        
+        lightboxOverlay.classList.add('show');
+        document.body.style.overflow = 'hidden'; // Disable page scroll
     }
 
-    // Event Listeners
+    function closeLightbox() {
+        lightboxOverlay.classList.remove('show');
+        document.body.style.overflow = ''; // Re-enable page scroll
+    }
 
-    // Smooth scroll for nav links
-    document.querySelectorAll('nav a').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            document.querySelector(targetId).scrollIntoView({
-                behavior: 'smooth'
+    function navigateLightbox(direction) {
+        const visibleImages = allGalleryItems.filter(item => item.classList.contains('visible-filtered') || !item.classList.contains('hidden'));
+        if (visibleImages.length === 0) return;
+
+        currentImageIndex += direction;
+        if (currentImageIndex < 0) {
+            currentImageIndex = visibleImages.length - 1;
+        } else if (currentImageIndex >= visibleImages.length) {
+            currentImageIndex = 0;
+        }
+        
+        const imageToLoad = visibleImages[currentImageIndex];
+        lightboxImage.src = imageToLoad.dataset.fullSrc || imageToLoad.src;
+        lightboxCaption.textContent = imageToLoad.alt;
+    }
+
+    // Portfolio Filtering (only on portfolio.html)
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    if (filterButtons.length > 0) { // Check if we are on portfolio page
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+
+                const filter = button.dataset.filter;
+
+                allGalleryItems.forEach(item => {
+                    if (filter === 'all' || item.classList.contains(filter)) {
+                        item.classList.remove('hidden');
+                        item.classList.add('visible-filtered'); // Add a class for visible items
+                    } else {
+                        item.classList.add('hidden');
+                        item.classList.remove('visible-filtered');
+                    }
+                });
             });
         });
+
+        // Initialize filtering: show all items by default and mark them as visible
+        allGalleryItems.forEach(item => {
+            item.classList.add('visible-filtered');
+        });
+    }
+
+    // Set current year in footer
+    const currentYearElements = document.querySelectorAll('[id^="current-year"]');
+    if (currentYearElements.length > 0) {
+        const year = new Date().getFullYear();
+        currentYearElements.forEach(el => el.textContent = year);
+    }
+
+
+    // --- Event Listeners ---
+
+    // Smooth scroll for nav links (active page logic)
+    document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            // Prevent default only if it's an anchor to a section on the same page
+            if (this.getAttribute('href').startsWith('#')) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                document.querySelector(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+            // Logic to set active class for current page
+            document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
+            this.classList.add('active');
+        });
     });
+
+    // Set active class on nav link based on current page load
+    const path = window.location.pathname.split('/').pop();
+    document.querySelectorAll('nav a').forEach(link => {
+        if (link.getAttribute('href') === path || (path === '' && link.getAttribute('href') === 'index.html')) {
+            link.classList.add('active');
+        }
+    });
+
 
     backToTopBtn.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -114,26 +184,29 @@ document.addEventListener('DOMContentLoaded', () => {
         img.addEventListener('click', () => openLightbox(index));
     });
 
-    lightboxCloseBtn.addEventListener('click', closeLightbox);
-    lightboxPrevBtn.addEventListener('click', () => navigateLightbox(-1));
-    lightboxNextBtn.addEventListener('click', () => navigateLightbox(1));
+    if (lightboxOverlay) { // Check if lightbox elements exist
+        lightboxCloseBtn.addEventListener('click', closeLightbox);
+        lightboxPrevBtn.addEventListener('click', () => navigateLightbox(-1));
+        lightboxNextBtn.addEventListener('click', () => navigateLightbox(1));
 
-    // Close lightbox on escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && lightboxOverlay.classList.contains('show')) {
-            closeLightbox();
-        }
-    });
-
+        // Close lightbox on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightboxOverlay.classList.contains('show')) {
+                closeLightbox();
+            }
+        });
+    }
+    
     // Initial calls for elements visible on load
     revealOnScroll();
-    parallaxEffect();
+    // Parallax might need a slight delay or be called after images load for best effect
+    // parallaxEffect(); 
     toggleBackToTop();
 
     // Throttled scroll event listener
     window.addEventListener('scroll', throttle(() => {
         revealOnScroll();
-        parallaxEffect();
+        parallaxEffect(); // Call parallax on scroll
         toggleBackToTop();
     }, 100)); // Limit events to every 100ms
 });
