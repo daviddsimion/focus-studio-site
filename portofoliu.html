@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Portofoliul Focus Studio - Colecții de Fotografie și Videografie Profesională (Nunți, Botezuri, Portrete, Evenimente)." />
-    <meta name="keywords" content="portofoliu foto video, galerie foto, nunta, botez, portret, evenimente corporate, fotograf Slobozia" />
+    <meta name="description" content="Portofoliu Focus Studio - Vezi cele mai bune lucrări de fotografie și videografie. Nuntă, botez, evenimente, portrete." />
+    <meta name="keywords" content="portofoliu foto, portofoliu video, fotograf nunta Slobozia, videograf botez, galerii foto, cele mai bune fotografii" />
     <meta name="author" content="Focus Studio" />
     <title>Focus Studio | Portofoliu</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -24,31 +24,35 @@
     </header>
 
     <main>
-        <section id="portfolio-page-hero" class="hero-section small-hero reveal">
+        <section id="hero-portofoliu" class="hero-section small-hero reveal" style="background-image: url('portofoliu-hero.jpg');">
             <div class="hero-content">
-                <h1>Descoperă Arta Noastră Vizuală</h1>
-                <p class="subtitle">O selecție a celor mai frumoase momente capturate</p>
+                <h1>Portofoliul Nostru</h1>
+                <p class="subtitle">O colecție de momente prețioase, surprinse cu pasiune.</p>
             </div>
+            <div class="hero-background-overlay"></div>
         </section>
 
-        <section id="portfolio-gallery" class="section-card reveal">
-            <h2>Galeria Noastră</h2>
+        <section id="galerie" class="section-card reveal">
+            <h2>Galeria Noastră de Lucrări</h2>
             <div class="filter-buttons">
                 <button class="filter-btn active" data-filter="all">Toate</button>
-                <button class="filter-btn" data-filter="nunti">Nunți</button>
-                <button class="filter-btn" data-filter="botezuri">Botezuri</button>
-                <button class="filter-btn" data-filter="portrete">Portrete</button>
+                <button class="filter-btn" data-filter="nunta">Nuntă</button>
+                <button class="filter-btn" data-filter="botez">Botez</button>
+                <button class="filter-btn" data-filter="portret">Portret</button>
                 <button class="filter-btn" data-filter="evenimente">Evenimente</button>
-                </div>
+            </div>
+
             <div class="gallery grid-layout">
-                <img src="poza1.png" alt="Nuntă Romantică" class="gallery-item nunti" data-full-src="poza1-full.png" />
-                <img src="poza2.png" alt="Botez Fericit" class="gallery-item botezuri" data-full-src="poza2-full.png" />
-                <img src="cand_trandafirii.png" alt="Portret Artistic" class="gallery-item portrete" data-full-src="cand_trandafirii-full.png" />
-                <img src="poza4.png" alt="Eveniment Corporativ" class="gallery-item evenimente" data-full-src="poza4-full.png" />
-                <img src="poza5.png" alt="Sesiune Foto Familie" class="gallery-item portrete" data-full-src="poza5-full.png" />
-                <img src="poza6.png" alt="Nuntă la Apus" class="gallery-item nunti" data-full-src="poza6-full.png" />
-                <img src="poza7.png" alt="Botez în Natură" class="gallery-item botezuri" data-full-src="poza7-full.png" />
-                <img src="poza8.png" alt="Portret Business" class="gallery-item portrete" data-full-src="poza8-full.png" />
+                <img src="img/galerie1.jpg" alt="Fotografie Nuntă" class="gallery-item" data-category="nunta" data-caption="Momente de bucurie la nuntă">
+                <img src="img/galerie2.jpg" alt="Fotografie Botez" class="gallery-item" data-category="botez" data-caption="Emoție la botezul micuțului">
+                <img src="img/galerie3.jpg" alt="Portret Studio" class="gallery-item" data-category="portret" data-caption="Ședință foto portret profesională">
+                <img src="img/galerie4.jpg" alt="Eveniment Corporate" class="gallery-item" data-category="evenimente" data-caption="Eveniment corporate, discurs inspirațional">
+                <img src="img/galerie5.jpg" alt="Fotografie Nuntă Detaliu" class="gallery-item" data-category="nunta" data-caption="Detalii de neuitat din ziua nunții">
+                <img src="img/galerie6.jpg" alt="Botez Biserica" class="gallery-item" data-category="botez" data-caption="Ceremonia de botez la biserică">
+                <img src="img/galerie7.jpg" alt="Portret Natură" class="gallery-item" data-category="portret" data-caption="Portret artistic în natură">
+                <img src="img/galerie8.jpg" alt="Concert Eveniment" class="gallery-item" data-category="evenimente" data-caption="Atmosferă vibrantă la eveniment muzical">
+                <img src="img/galerie9.jpg" alt="Fotografie Nuntă Cuplu" class="gallery-item" data-category="nunta" data-caption="Cuplu fericit în ziua nunții">
+                <img src="img/galerie10.jpg" alt="Fotografie Botez Familie" class="gallery-item" data-category="botez" data-caption="Familia reunită la botez">
             </div>
         </section>
     </main>
@@ -59,16 +63,16 @@
 
     <button id="back-to-top">↑</button>
 
-    <div id="lightbox-overlay" class="hidden">
+    <div id="lightbox-overlay">
         <div id="lightbox-content">
             <button id="lightbox-close">&times;</button>
-            <img id="lightbox-image" src="" alt="Imagine mărită" />
-            <button id="lightbox-prev">&#10094;</button>
-            <button id="lightbox-next">&#10095;</button>
+            <img id="lightbox-image" src="" alt="Imagine Mare">
             <div id="lightbox-caption"></div>
+            <button id="lightbox-prev">‹</button>
+            <button id="lightbox-next">›</button>
         </div>
     </div>
-    
+
     <script src="script.js"></script>
 </body>
 </html>
