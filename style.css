@@ -106,7 +106,9 @@ main {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: url('hero-background.jpg') no-repeat center center/cover; /* Imagine de fundal pentru hero */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover; /* Imagine de fundal pentru hero */
     color: #fff;
     overflow: hidden; /* Pentru a ascunde ce iese din poză */
 }
@@ -291,15 +293,20 @@ p {
     position: relative;
     /* Adaugi aici stilurile pentru carusel (cu JS, ar fi mai complex) */
     text-align: center;
+    display: flex; /* Pentru carusel simplu, afișează un singur item */
+    overflow: hidden; /* Ascunde testimonialele în plus */
+    scroll-snap-type: x mandatory; /* Smooth scroll între iteme */
 }
 
 .testimonial-item {
+    flex: 0 0 100%; /* Fiecare item ocupă 100% din lățime */
     background: rgba(0, 0, 0, 0.4);
     padding: 30px;
     border-radius: 15px;
     border: 1px solid rgba(212, 175, 55, 0.1);
     margin: 0 auto; /* Centrare */
     max-width: 700px;
+    scroll-snap-align: start; /* Ancorare pentru scroll snap */
 }
 
 .testimonial-item p {
@@ -351,6 +358,7 @@ p {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 25px;
     padding-top: 20px;
+    transition: all 0.5s ease-out; /* Pentru animația de filtrare */
 }
 
 .gallery-item {
@@ -360,7 +368,7 @@ p {
     border-radius: 15px;
     box-shadow: 0 0 35px rgba(212, 175, 55, 0.4);
     cursor: pointer;
-    transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.5s ease;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.5s ease, display 0.5s ease;
     border: 2px solid rgba(212, 175, 55, 0.2);
     opacity: 1;
     display: block; /* Pentru filtrare */
@@ -370,8 +378,14 @@ p {
     opacity: 0;
     transform: scale(0.8);
     pointer-events: none;
-    position: absolute; /* Ajută la tranziția de la display none */
+    /* position: absolute; /* Ajută la tranziția de la display none */
+    height: 0; /* Colapsează elementul */
+    margin: 0; /* Elimină marginile */
+    padding: 0; /* Elimină padding-ul */
+    overflow: hidden; /* Ascunde conținutul */
+    transition: opacity 0.5s ease, transform 0.5s ease, height 0.5s ease, margin 0.5s ease, padding 0.5s ease;
 }
+
 
 .gallery-item:hover {
     transform: scale(1.05) translateY(-8px);
