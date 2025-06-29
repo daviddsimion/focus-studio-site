@@ -3,71 +3,81 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Focus Studio - Transformăm emoțiile în artă vizuală. Fotografie și videografie profesională în Slobozia." />
-    <meta name="keywords" content="fotografie, videografie, Slobozia, studio foto, evenimente, portofoliu, Focus Studio, videograf Slobozia, fotograf Slobozia" />
+    <meta name="description" content="Focus Studio - Fotografie și Videografie Profesională în Slobozia. Transformăm emoțiile în artă vizuală." />
+    <meta name="keywords" content="fotografie Slobozia, videografie Slobozia, Focus Studio, studio foto, servicii foto video, evenimente, portrete, nunta, botez, corporate" />
     <meta name="author" content="Focus Studio" />
-    <title>Focus Studio | Fotografie & Videografie Profesională</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
-    
+    <title>Focus Studio | Acasă</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <header class="main-header">
-        <img src="logo.png" alt="Focus Studio Logo" class="logo" />
-        <div class="hero-content">
-            <h1>Focus Studio</h1>
-            <p class="subtitle">Transformăm emoțiile în artă vizuală</p>
+        <div class="logo-container">
+            <img src="logo.png" alt="Focus Studio Logo" class="logo" />
+            <span class="site-title">Focus Studio</span>
         </div>
         <nav>
-            <a href="#despre">Despre</a>
-            <a href="#portofoliu">Portofoliu</a>
-            <a href="#contact">Contact</a>
+            <a href="index.html" class="active">Acasă</a>
+            <a href="portofoliu.html">Portofoliu</a>
+            <a href="contact.html">Contact & Servicii</a>
         </nav>
     </header>
 
-    <section id="despre" class="reveal">
-        <h2>Despre Noi</h2>
-        <p>Focus Studio este rezultatul pasiunii unui tânăr din Slobozia pentru fotografie și videografie. Ne dedicăm în a transforma fiecare clipă într-o amintire artistică, oferind servicii personalizate și creative pentru a surprinde esența evenimentelor și a momentelor speciale din viața ta.</p>
-        <p>Suntem aici pentru a te ajuta să economisești timp și să obții rezultate de impact, fie că este vorba de evenimente, portrete sau proiecte artistice. Ne place să experimentăm idei originale și inovatoare, creând conținut vizual cu adevărat memorabil.</p>
-    </section>
+    <main>
+        <section id="hero" class="hero-section reveal">
+            <div class="hero-content">
+                <h1>Capturăm Momente, Creăm Amintiri Eterne</h1>
+                <p class="subtitle">Fotografie și Videografie Profesională cu Pasiune și Artă</p>
+                <a href="portofoliu.html" class="cta-button">Vezi Portofoliul Nostru</a>
+            </div>
+            <div class="hero-background-overlay"></div>
+        </section>
 
-    <section id="portofoliu" class="reveal">
-        <h2>Portofoliu</h2>
-        <div class="gallery">
-            <img src="poza1.png" alt="Imagine Portofoliu 1" data-full-src="poza1-full.png" />
-            <img src="poza2.png" alt="Imagine Portofoliu 2" data-full-src="poza2-full.png" />
-            <img src="cand_trandafirii.png" alt="Imagine Portofoliu 3" data-full-src="cand_trandafirii-full.png" />
-            <img src="poza4.png" alt="Imagine Portofoliu 4" data-full-src="poza4-full.png" />
-            <img src="poza5.png" alt="Imagine Portofoliu 5" data-full-src="poza5-full.png" />
-        </div>
-    </section>
+        <section id="despre-scurt" class="section-card reveal">
+            <h2>Cine Suntem</h2>
+            <p>La **Focus Studio**, transformăm fiecare clipă într-o amintire artistică. Suntem o echipă de tineri pasionați de fotografie și videografie din Slobozia, dedicați să surprindă esența evenimentelor și a momentelor speciale cu un stil original și inovator. Ne place să ducem viziunea ta la realitate, oferind rezultate vizuale cu adevărat impactante.</p>
+            <a href="contact.html" class="learn-more-button">Află Mai Multe & Contactează-ne</a>
+        </section>
 
-    <section id="contact" class="reveal">
-        <h2>Contact</h2>
-        <ul>
-            <li><span class="icon">✉️</span> Email: <a href="mailto:dumii273@gmail.com">dumii273@gmail.com</a></li>
-            <li><span class="icon">📸</span> Instagram: <a href="https://instagram.com/focus.studio.ro" target="_blank" rel="noopener noreferrer">@focus.studio.ro</a></li>
-            <li><span class="icon">📞</span> Telefon: <a href="tel:+40731748445">0731 748 445</a></li>
-        </ul>
-        <p class="contact-note">Suntem disponibili pentru discuții și proiecte noi. Nu ezita să ne contactezi pentru o colaborare fără judecată, plină de înțelegere și idei creative!</p>
-    </section>
+        <section id="servicii-prezentare" class="section-card reveal">
+            <h2>Serviciile Noastre</h2>
+            <div class="services-grid">
+                <div class="service-item">
+                    <h3>Fotografie Evenimente</h3>
+                    <p>Imortalizăm emoția și bucuria evenimentelor tale speciale: nunți, botezuri, aniversări și petreceri private.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Videografie Cinematică</h3>
+                    <p>Transformăm momentele cheie în povești vizuale captivante, cu un stil cinematografic unic.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Ședințe Foto Personalizate</h3>
+                    <p>Creează amintiri de neuitat prin ședințe foto de portret, familie, produse sau sesiuni artistice.</p>
+                </div>
+            </div>
+            <a href="contact.html#servicii" class="cta-button secondary">Descoperă Toate Serviciile</a>
+        </section>
+
+        <section id="testimoniale" class="section-card reveal">
+            <h2>Ce Spun Clienții Noștri</h2>
+            <div class="testimonial-carousel">
+                <div class="testimonial-item">
+                    <p>"Focus Studio a depășit toate așteptările! Profesionalism, creativitate și rezultate uimitoare. Recomand cu drag!"</p>
+                    <span class="client-name">- Maria Popescu</span>
+                </div>
+                <div class="testimonial-item">
+                    <p>"Imaginile și videoclipul de la evenimentul nostru sunt de vis. Atenția la detalii și pasiunea se văd în fiecare cadru."</p>
+                    <span class="client-name">- Andrei Vasilescu</span>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer>
-        &copy; 2025 Focus Studio. Toate drepturile rezervate.
+        &copy; <span id="current-year"></span> Focus Studio. Toate drepturile rezervate.
     </footer>
 
     <button id="back-to-top">↑</button>
-
-    <div id="lightbox-overlay" class="hidden">
-        <div id="lightbox-content">
-            <button id="lightbox-close">&times;</button>
-            <img id="lightbox-image" src="" alt="Imagine mărită" />
-            <button id="lightbox-prev">&#10094;</button>
-            <button id="lightbox-next">&#10095;</button>
-            <div id="lightbox-caption"></div>
-        </div>
-    </div>
-
     <script src="script.js"></script>
 </body>
 </html>
