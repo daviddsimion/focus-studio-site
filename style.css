@@ -288,15 +288,7 @@ p {
 }
 
 /* Testimonial Carousel */
-.testimonial-carousel {
-    margin-top: 40px;
-    position: relative;
-    /* Adaugi aici stilurile pentru carusel (cu JS, ar fi mai complex) */
-    text-align: center;
-    display: flex; /* Pentru carusel simplu, afișează un singur item */
-    overflow: hidden; /* Ascunde testimonialele în plus */
-    scroll-snap-type: x mandatory; /* Smooth scroll între iteme */
-    /* Testimonial Carousel */
+/* Testimonial Carousel */
 .testimonial-carousel {
     margin-top: 40px;
     position: relative;
@@ -352,18 +344,6 @@ p {
 /* Stiluri pentru a ascunde/afișa testimonialele (controlate de JS) */
 /* Nu mai avem nevoie de `scroll-snap` dacă facem caruselul cu `transform` */
 /* Vom folosi `transform: translateX()` în JS */
-}
-
-.testimonial-item {
-    flex: 0 0 100%; /* Fiecare item ocupă 100% din lățime */
-    background: rgba(0, 0, 0, 0.4);
-    padding: 30px;
-    border-radius: 15px;
-    border: 1px solid rgba(212, 175, 55, 0.1);
-    margin: 0 auto; /* Centrare */
-    max-width: 700px;
-    scroll-snap-align: start; /* Ancorare pentru scroll snap */
-}
 
 .testimonial-item p {
     font-size: 1.2rem;
