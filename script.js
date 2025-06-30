@@ -1,12 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Selectează toate secțiunile care au clasa 'reveal'
+    // --- Selectoare Generale ---
     const sections = document.querySelectorAll('section.reveal');
-    // Selectează butonul "Back to Top"
     const backToTopBtn = document.getElementById('back-to-top');
+    const currentYearElements = document.querySelectorAll('[id^="current-year"]');
+    const navLinks = document.querySelectorAll('nav a');
 
     // --- Funcționalități Generale ---
 
-    // 1. Animații la scroll (Reveal Sections)
+    /**
+     * Activează animația de "reveal" pentru secțiuni la scroll.
+     */
     function revealOnScroll() {
         sections.forEach(section => {
             const rect = section.getBoundingClientRect();
@@ -20,9 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. Buton "Back to Top"
+    /**
+     * Afișează/ascunde butonul "Back to Top" în funcție de poziția scroll-ului.
+     */
     function toggleBackToTop() {
-        if (backToTopBtn) { // Verifică dacă butonul există înainte de a-l manipula
+        if (backToTopBtn) {
             if (window.scrollY > 400) {
                 backToTopBtn.classList.add('show');
             } else {
@@ -31,20 +36,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 3. Setarea anului curent în footer
+    /**
+     * Setează anul curent în elementele cu ID-uri care încep cu "current-year".
+     */
     function setCurrentYear() {
-        // Selectează toate elementele cu ID-uri care încep cu "current-year"
-        const currentYearElements = document.querySelectorAll('[id^="current-year"]');
         if (currentYearElements.length > 0) {
             const year = new Date().getFullYear();
             currentYearElements.forEach(el => el.textContent = year);
         }
     }
 
-    // 4. Activarea link-ului de navigație pentru pagina curentă
+    /**
+     * Setează clasa 'active' pentru link-ul de navigație al paginii curente.
+     */
     function setActiveNavLink() {
         const path = window.location.pathname.split('/').pop();
-        document.querySelectorAll('nav a').forEach(link => {
+        navLinks.forEach(link => {
             // Logica pentru index.html și celelalte pagini
             if (link.getAttribute('href') === path || (path === '' && link.getAttribute('href') === 'index.html')) {
                 link.classList.add('active');
@@ -67,30 +74,43 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentImageIndex = 0;
     let filteredImages = []; // Array pentru imaginile filtrate
 
-    // Funcția de deschidere Lightbox
-    function openLightbox(index) {
-        filteredImages = Array.from(document.querySelectorAll('.gallery-item:not(.hidden)')); // Actualizează imaginile filtrate
-        currentImageIndex = filteredImages.indexOf(galleryItems[index]); // Găsește indexul în array-ul filtrat
-        if (currentImageIndex === -1 && filteredImages.length > 0) { // Fallback dacă imaginea nu e în array-ul filtrat
-            currentImageIndex = 0;
-        }
-        
-        if (filteredImages.length > 0) {
+    /**
+     * Deschide lightbox-ul cu imaginea selectată.
+     * @param {number} initialIndex Indexul imaginii în array-ul 'galleryItems'.
+     */
+    function openLightbox(initialIndex) {
+        // Actualizează imaginile filtrate, excluzând cele ascunse prin filtrare
+        filteredImages = Array.from(document.querySelectorAll('.gallery-item:not(.hidden)'));
+
+        // Găsește indexul corect al imaginii curente în array-ul 'filteredImages'
+        const clickedItem = galleryItems[initialIndex];
+        currentImageIndex = filteredImages.indexOf(clickedItem);
+
+        if (filteredImages.length > 0 && currentImageIndex !== -1) {
             lightboxImage.src = filteredImages[currentImageIndex].src;
             lightboxCaption.textContent = filteredImages[currentImageIndex].dataset.caption || '';
             lightboxOverlay.classList.add('show');
             document.body.style.overflow = 'hidden'; // Blochează scroll-ul paginii
+        } else {
+            console.warn("Nu s-au găsit imagini de afișat în lightbox sau imaginea nu este vizibilă.");
         }
     }
 
-    // Funcția de închidere Lightbox
+    /**
+     * Închide lightbox-ul.
+     */
     function closeLightbox() {
         lightboxOverlay.classList.remove('show');
         document.body.style.overflow = ''; // Permite scroll-ul din nou
     }
 
-    // Funcția de navigare (următoarea/anterioara)
+    /**
+     * Navighează la imaginea anterioară/următoare în lightbox.
+     * @param {number} direction -1 pentru anterior, 1 pentru următor.
+     */
     function navigateLightbox(direction) {
+        if (filteredImages.length === 0) return; // Nu naviga dacă nu sunt imagini
+
         currentImageIndex += direction;
         if (currentImageIndex < 0) {
             currentImageIndex = filteredImages.length - 1;
@@ -101,21 +121,125 @@ document.addEventListener('DOMContentLoaded', () => {
         lightboxCaption.textContent = filteredImages[currentImageIndex].dataset.caption || '';
     }
 
-    // Funcția de filtrare a imaginilor
+    /**
+     * Filtrează imaginile din galerie în funcție de categorie.
+     * @param {string} category Categoria după care se filtrează ('all' sau o categorie specifică).
+     */
     function filterGallery(category) {
         galleryItems.forEach(item => {
             const itemCategory = item.dataset.category;
             if (category === 'all' || itemCategory === category) {
+                // Afișează elementul
                 item.classList.remove('hidden');
-                item.style.display = 'block'; // Asigură că elementul este vizibil după filtrare
+                item.style.display = 'block';
+                item.style.order = 1; // Asigură ordonarea corectă după filtrare
             } else {
+                // Ascunde elementul
                 item.classList.add('hidden');
-                item.style.display = 'none'; // Ascunde elementul complet după animație
+                // Adaugă un delay mic înainte de a seta display: none pentru animație
+                setTimeout(() => {
+                    item.style.display = 'none';
+                }, 500); // Trebuie să fie egal sau mai mare decât transition-duration din CSS
             }
         });
     }
 
-    // --- Inițializare și Event Listeners ---
+    // --- Carusel Testimoniale (Implementare completă) ---
+    const testimonialCarousel = document.querySelector('.testimonial-carousel');
+    const testimonialItems = document.querySelectorAll('.testimonial-item');
+    const carouselNavContainer = document.querySelector('.carousel-nav'); // Containerul butoanelor
+    const prevTestimonialBtn = document.getElementById('prev-testimonial');
+    const nextTestimonialBtn = document.getElementById('next-testimonial');
+    const testimonialDotsContainer = document.querySelector('.testimonial-dots');
+
+    let currentTestimonialIndex = 0;
+
+    /**
+     * Afișează testimonialul la indexul specificat.
+     * Rulează doar dacă există elemente pentru carusel.
+     */
+    function showTestimonial(index) {
+        if (!testimonialCarousel || testimonialItems.length === 0) return;
+
+        // Reset all items' display to ensure proper calculation before setting transform
+        testimonialItems.forEach(item => {
+            item.style.display = 'block'; // Make sure they are part of layout for width calculation
+            item.style.transform = `translateX(-${index * 100}%)`;
+        });
+
+        currentTestimonialIndex = index;
+        updateTestimonialDots();
+    }
+
+    /**
+     * Navighează la testimonialul anterior/următor.
+     * @param {number} direction -1 pentru anterior, 1 pentru următor.
+     */
+    function navigateTestimonial(direction) {
+        let newIndex = currentTestimonialIndex + direction;
+        if (newIndex < 0) {
+            newIndex = testimonialItems.length - 1;
+        } else if (newIndex >= testimonialItems.length) {
+            newIndex = 0;
+        }
+        showTestimonial(newIndex);
+    }
+
+    /**
+     * Creează și actualizează punctele de navigare pentru carusel.
+     */
+    function createTestimonialDots() {
+        if (testimonialDotsContainer && testimonialItems.length > 0) {
+            testimonialDotsContainer.innerHTML = ''; // Curăță punctele existente
+            testimonialItems.forEach((_, index) => {
+                const dot = document.createElement('span');
+                dot.classList.add('testimonial-dot');
+                if (index === currentTestimonialIndex) {
+                    dot.classList.add('active');
+                }
+                dot.addEventListener('click', () => showTestimonial(index));
+                testimonialDotsContainer.appendChild(dot);
+            });
+        }
+    }
+
+    /**
+     * Actualizează starea activă a punctelor de navigare.
+     */
+    function updateTestimonialDots() {
+        if (testimonialDotsContainer) {
+            testimonialDotsContainer.querySelectorAll('.testimonial-dot').forEach((dot, index) => {
+                if (index === currentTestimonialIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+    }
+
+
+    // --- Funcție utilitară pentru a "throtla" evenimentele (limitează numărul de apeluri) ---
+    /**
+     * Limitează frecvența de execuție a unei funcții.
+     * @param {Function} func Funcția de throtlat.
+     * @param {number} limit Timpul minim (ms) între apeluri.
+     * @returns {Function} Funcția throtlată.
+     */
+    function throttle(func, limit) {
+        let inThrottle;
+        return function() {
+            const args = arguments;
+            const context = this;
+            if (!inThrottle) {
+                func.apply(context, args);
+                inThrottle = true;
+                setTimeout(() => inThrottle = false, limit);
+            }
+        };
+    }
+
+    // --- Inițializare și Event Listeners Globale ---
 
     // Rulează funcțiile o dată la încărcarea paginii
     revealOnScroll();
@@ -142,9 +266,9 @@ document.addEventListener('DOMContentLoaded', () => {
             item.addEventListener('click', () => openLightbox(index));
         });
 
-        lightboxCloseBtn.addEventListener('click', closeLightbox);
-        lightboxPrevBtn.addEventListener('click', () => navigateLightbox(-1));
-        lightboxNextBtn.addEventListener('click', () => navigateLightbox(1));
+        if (lightboxCloseBtn) lightboxCloseBtn.addEventListener('click', closeLightbox);
+        if (lightboxPrevBtn) lightboxPrevBtn.addEventListener('click', () => navigateLightbox(-1));
+        if (lightboxNextBtn) lightboxNextBtn.addEventListener('click', () => navigateLightbox(1));
 
         // Închide Lightbox la apăsarea tastei ESC
         document.addEventListener('keydown', (e) => {
@@ -178,32 +302,13 @@ document.addEventListener('DOMContentLoaded', () => {
         filterGallery('all');
     }
 
-    // --- Carusel Testimoniale (Implementare simplă, manuală) ---
-    const testimonialCarousel = document.querySelector('.testimonial-carousel');
-    const testimonialItems = document.querySelectorAll('.testimonial-item');
-    let currentTestimonialIndex = 0;
-
+    // --- Carusel Testimoniale Event Listeners (numai dacă există elemente de carusel) ---
     if (testimonialCarousel && testimonialItems.length > 0) {
-        // Implementare manuală simplă: afișează doar primul testimonial la început
-        // Dacă vrei un carusel real, ar fi nevoie de mai mult JS (navigare, autoplay)
-        // Deocamdată, îl vom lăsa să afișeze static doar un item dacă vrei.
-        // Pentru o funcționalitate de carusel completă (prev/next, autoplay), ar trebui să adăugăm mai mult cod aici.
-        // De exemplu, un mic "carusel" fără butoane, dar cu scroll snap:
-        // (CSS-ul are deja proprietățile scroll-snap)
-    }
+        // Asigură-te că butoanele de navigare există
+        if (prevTestimonialBtn) prevTestimonialBtn.addEventListener('click', () => navigateTestimonial(-1));
+        if (nextTestimonialBtn) nextTestimonialBtn.addEventListener('click', () => navigateTestimonial(1));
 
-
-    // Funcție utilitară pentru a "throtla" evenimentele (limitează numărul de apeluri)
-    function throttle(func, limit) {
-        let inThrottle;
-        return function() {
-            const args = arguments;
-            const context = this;
-            if (!inThrottle) {
-                func.apply(context, args);
-                inThrottle = true;
-                setTimeout(() => inThrottle = false, limit);
-            }
-        };
+        createTestimonialDots(); // Creează punctele de navigare
+        showTestimonial(0); // Afișează primul testimonial la încărcare
     }
 });
