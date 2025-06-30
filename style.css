@@ -884,4 +884,60 @@ footer {
     #lightbox-caption {
         font-size: 1rem;
     }
+    /* Testimonial Carousel */
+.testimonial-carousel {
+    margin-top: 40px;
+    position: relative;
+    display: flex; /* Permite aranjarea itemilor pe o singură linie */
+    overflow: hidden; /* Ascunde testimonialele care nu sunt vizibile */
+    scroll-behavior: smooth; /* Asigură o tranziție lină la scroll */
+    /* scroll-snap-type: x mandatory; /* Lăsăm asta, dar o vom controla prin JS acum */
+}
+
+.testimonial-item {
+    flex: 0 0 100%; /* Fiecare item ocupă 100% din lățime */
+    background: rgba(0, 0, 0, 0.4);
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    margin: 0 auto; /* Centrare */
+    max-width: 700px;
+    /* scroll-snap-align: start; /* Lăsăm asta, dar o vom controla prin JS acum */
+    transition: transform 0.8s ease-in-out; /* Animație pentru slide */
+}
+
+/* Stiluri pentru butoanele de navigare ale caruselului */
+.carousel-nav {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.carousel-nav button {
+    background: #d4af37;
+    color: #121212;
+    border: none;
+    padding: 10px 18px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    border-radius: 50%;
+    margin: 0 10px;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 10px rgba(212, 175, 55, 0.5);
+    width: 50px; /* Dimensiune fixă pentru butoane rotunde */
+    height: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.carousel-nav button:hover {
+    background: #e0c25a;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.7);
+}
+
+/* Stiluri pentru a ascunde/afișa testimonialele (controlate de JS) */
+/* Nu mai avem nevoie de `scroll-snap` dacă facem caruselul cu `transform` */
+/* Vom folosi `transform: translateX()` în JS */
 }
